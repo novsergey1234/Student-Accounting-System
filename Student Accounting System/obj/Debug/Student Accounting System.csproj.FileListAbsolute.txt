@@ -1,0 +1,9 @@
+C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student Accounting System.csproj.AssemblyReference.cache
+C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student_Accounting_System.Properties.Resources.resources
+C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student Accounting System.csproj.GenerateResource.cache
+C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student Accounting System.csproj.CoreCompileInputs.cache
+C:\SmolGU\Student Accounting System\Student Accounting System\bin\Debug\Student Accounting System.exe.config
+C:\SmolGU\Student Accounting System\Student Accounting System\bin\Debug\Student Accounting System.exe
+C:\SmolGU\Student Accounting System\Student Accounting System\bin\Debug\Student Accounting System.pdb
+C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student Accounting System.exe
+C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student Accounting System.pdb
