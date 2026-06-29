@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Student_Accounting_System
@@ -23,12 +24,89 @@ namespace Student_Accounting_System
                     SQLiteConnection.CreateFile(_dbPath);
                     CreateTables();
                 }
+                else
+                {
+                    MigrateDatabase();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка инициализации базы данных: {ex.Message}", "Ошибка БД", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
+            }
+        }
+
+        private static void MigrateDatabase()
+        {
+            using (var conn = new SQLiteConnection(ConnectionString))
+            {
+                conn.Open();
+                EnableForeignKeys(conn);
+
+                using (var cmd = new SQLiteCommand(@"
+                    CREATE TABLE IF NOT EXISTS GroupSubjects (
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        GroupId INTEGER NOT NULL,
+                        Name TEXT NOT NULL,
+                        FOREIGN KEY (GroupId) REFERENCES Groups(Id) ON DELETE CASCADE
+                    )", conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Check if Subjects table exists
+                bool subjectsTableExists = false;
+                using (var cmd = new SQLiteCommand(
+                    "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='Subjects'", conn))
+                {
+                    subjectsTableExists = (long)cmd.ExecuteScalar() > 0;
+                }
+
+                if (subjectsTableExists)
+                {
+                    bool hasColumn = false;
+                    using (var cmd = new SQLiteCommand("PRAGMA table_info(Subjects)", conn))
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (reader.GetString(1) == "GroupSubjectId")
+                            {
+                                hasColumn = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (!hasColumn)
+                    {
+                        using (var cmd = new SQLiteCommand(
+                            "ALTER TABLE Subjects ADD COLUMN GroupSubjectId INTEGER REFERENCES GroupSubjects(Id)", conn))
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+                else
+                {
+                    // Create Subjects table with new schema
+                    using (var cmd = new SQLiteCommand(@"
+                        CREATE TABLE IF NOT EXISTS Subjects (
+                            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            StudentId INTEGER NOT NULL,
+                            GroupSubjectId INTEGER,
+                            Name TEXT NOT NULL,
+                            Semester1Grade INTEGER DEFAULT 0,
+                            Semester2Grade INTEGER DEFAULT 0,
+                            FinalGrade INTEGER DEFAULT 0,
+                            FOREIGN KEY (StudentId) REFERENCES Students(Id) ON DELETE CASCADE,
+                            FOREIGN KEY (GroupSubjectId) REFERENCES GroupSubjects(Id) ON DELETE SET NULL
+                        )", conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
             }
         }
 
@@ -69,14 +147,23 @@ namespace Student_Accounting_System
                             FOREIGN KEY (GroupId) REFERENCES Groups(Id) ON DELETE CASCADE
                         );
 
+                        CREATE TABLE IF NOT EXISTS GroupSubjects (
+                            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            GroupId INTEGER NOT NULL,
+                            Name TEXT NOT NULL,
+                            FOREIGN KEY (GroupId) REFERENCES Groups(Id) ON DELETE CASCADE
+                        );
+
                         CREATE TABLE IF NOT EXISTS Subjects (
                             Id INTEGER PRIMARY KEY AUTOINCREMENT,
                             StudentId INTEGER NOT NULL,
+                            GroupSubjectId INTEGER,
                             Name TEXT NOT NULL,
                             Semester1Grade INTEGER DEFAULT 0,
                             Semester2Grade INTEGER DEFAULT 0,
                             FinalGrade INTEGER DEFAULT 0,
-                            FOREIGN KEY (StudentId) REFERENCES Students(Id) ON DELETE CASCADE
+                            FOREIGN KEY (StudentId) REFERENCES Students(Id) ON DELETE CASCADE,
+                            FOREIGN KEY (GroupSubjectId) REFERENCES GroupSubjects(Id) ON DELETE SET NULL
                         );
                     ";
                     cmd.ExecuteNonQuery();
@@ -115,6 +202,8 @@ namespace Student_Accounting_System
 
                     foreach (var group in groups)
                     {
+                        LoadGroupSubjectsForGroup(conn, group);
+
                         using (var cmd = new SQLiteCommand(
                             "SELECT Id, LastName, FirstName, MiddleName, BirthDate, Phone, Email, Address, Status, SubGroup FROM Students WHERE GroupId = @groupId", 
                             conn))
@@ -138,7 +227,6 @@ namespace Student_Accounting_System
                                         SubGroup = reader.IsDBNull(9) ? "" : reader.GetString(9)
                                     };
 
-                                    // Load subjects for student
                                     LoadSubjectsForStudent(conn, student);
                                     group.Students.Add(student);
                                 }
@@ -158,7 +246,7 @@ namespace Student_Accounting_System
         private static void LoadSubjectsForStudent(SQLiteConnection conn, Student student)
         {
             using (var cmd = new SQLiteCommand(
-                "SELECT Id, Name, Semester1Grade, Semester2Grade, FinalGrade FROM Subjects WHERE StudentId = @studentId", 
+                "SELECT Id, Name, Semester1Grade, Semester2Grade, FinalGrade, GroupSubjectId FROM Subjects WHERE StudentId = @studentId", 
                 conn))
             {
                 cmd.Parameters.AddWithValue("@studentId", student.Id);
@@ -172,7 +260,29 @@ namespace Student_Accounting_System
                             Name = reader.GetString(1),
                             Semester1Grade = reader.GetInt32(2),
                             Semester2Grade = reader.GetInt32(3),
-                            FinalGrade = reader.GetInt32(4)
+                            FinalGrade = reader.GetInt32(4),
+                            GroupSubjectId = reader.IsDBNull(5) ? (int?)null : reader.GetInt32(5)
+                        });
+                    }
+                }
+            }
+        }
+
+        private static void LoadGroupSubjectsForGroup(SQLiteConnection conn, Group group)
+        {
+            using (var cmd = new SQLiteCommand(
+                "SELECT Id, Name FROM GroupSubjects WHERE GroupId = @groupId", conn))
+            {
+                cmd.Parameters.AddWithValue("@groupId", group.Id);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        group.GroupSubjects.Add(new GroupSubject
+                        {
+                            Id = reader.GetInt32(0),
+                            GroupId = group.Id,
+                            Name = reader.GetString(1)
                         });
                     }
                 }
@@ -389,12 +499,13 @@ namespace Student_Accounting_System
                 try
                 {
                     using (var cmd = new SQLiteCommand(
-                        @"INSERT INTO Subjects (StudentId, Name, Semester1Grade, Semester2Grade, FinalGrade) 
-                          VALUES (@studentId, @name, @sem1, @sem2, @final);
+                        @"INSERT INTO Subjects (StudentId, GroupSubjectId, Name, Semester1Grade, Semester2Grade, FinalGrade) 
+                          VALUES (@studentId, @gsId, @name, @sem1, @sem2, @final);
                           SELECT last_insert_rowid();", 
                         conn))
                     {
                         cmd.Parameters.AddWithValue("@studentId", studentId);
+                        cmd.Parameters.AddWithValue("@gsId", (object)subject.GroupSubjectId ?? DBNull.Value);
                         cmd.Parameters.AddWithValue("@name", subject.Name);
                         cmd.Parameters.AddWithValue("@sem1", subject.Semester1Grade);
                         cmd.Parameters.AddWithValue("@sem2", subject.Semester2Grade);
@@ -469,6 +580,183 @@ namespace Student_Accounting_System
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка удаления предмета: {ex.Message}", "Ошибка БД", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+
+        public static void SaveGroupSubject(GroupSubject groupSubject, int groupId)
+        {
+            try
+            {
+                using (var conn = new SQLiteConnection(ConnectionString))
+                {
+                    conn.Open();
+                    EnableForeignKeys(conn);
+
+                    using (var cmd = new SQLiteCommand(
+                        "INSERT INTO GroupSubjects (GroupId, Name) VALUES (@groupId, @name); SELECT last_insert_rowid();", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@groupId", groupId);
+                        cmd.Parameters.AddWithValue("@name", groupSubject.Name);
+                        groupSubject.Id = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+
+                    // Create subject entries for all students in the group
+                    foreach (var student in DataStore.Groups.First(g => g.Id == groupId).Students)
+                    {
+                        using (var cmd = new SQLiteCommand(
+                            @"INSERT INTO Subjects (StudentId, GroupSubjectId, Name, Semester1Grade, Semester2Grade, FinalGrade) 
+                              VALUES (@studentId, @gsId, @name, 0, 0, 0); SELECT last_insert_rowid();", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@studentId", student.Id);
+                            cmd.Parameters.AddWithValue("@gsId", groupSubject.Id);
+                            cmd.Parameters.AddWithValue("@name", groupSubject.Name);
+                            var subId = Convert.ToInt32(cmd.ExecuteScalar());
+                            student.Subjects.Add(new Subject
+                            {
+                                Id = subId,
+                                StudentId = student.Id,
+                                GroupSubjectId = groupSubject.Id,
+                                Name = groupSubject.Name,
+                                Semester1Grade = 0,
+                                Semester2Grade = 0,
+                                FinalGrade = 0
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка сохранения предмета группы: {ex.Message}", "Ошибка БД", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+
+        public static void UpdateGroupSubject(GroupSubject groupSubject)
+        {
+            try
+            {
+                using (var conn = new SQLiteConnection(ConnectionString))
+                {
+                    conn.Open();
+                    EnableForeignKeys(conn);
+
+                    using (var cmd = new SQLiteCommand(
+                        "UPDATE GroupSubjects SET Name = @name WHERE Id = @id", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", groupSubject.Id);
+                        cmd.Parameters.AddWithValue("@name", groupSubject.Name);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Also update subject names for all students
+                    using (var cmd = new SQLiteCommand(
+                        "UPDATE Subjects SET Name = @name WHERE GroupSubjectId = @id", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", groupSubject.Id);
+                        cmd.Parameters.AddWithValue("@name", groupSubject.Name);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка обновления предмета группы: {ex.Message}", "Ошибка БД", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+
+        public static void DeleteGroupSubject(int groupSubjectId)
+        {
+            try
+            {
+                using (var conn = new SQLiteConnection(ConnectionString))
+                {
+                    conn.Open();
+                    EnableForeignKeys(conn);
+
+                    using (var cmd = new SQLiteCommand(
+                        "DELETE FROM Subjects WHERE GroupSubjectId = @id", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", groupSubjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    using (var cmd = new SQLiteCommand(
+                        "DELETE FROM GroupSubjects WHERE Id = @id", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", groupSubjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                // Update in-memory data
+                foreach (var group in DataStore.Groups)
+                {
+                    var gs = group.GroupSubjects.FirstOrDefault(s => s.Id == groupSubjectId);
+                    if (gs != null)
+                    {
+                        group.GroupSubjects.Remove(gs);
+                        break;
+                    }
+                }
+                foreach (var group in DataStore.Groups)
+                {
+                    foreach (var student in group.Students)
+                    {
+                        student.Subjects.RemoveAll(s => s.GroupSubjectId == groupSubjectId);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка удаления предмета группы: {ex.Message}", "Ошибка БД", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+
+        public static void CreateSubjectsForNewStudent(Student student, int groupId)
+        {
+            try
+            {
+                using (var conn = new SQLiteConnection(ConnectionString))
+                {
+                    conn.Open();
+                    EnableForeignKeys(conn);
+
+                    var group = DataStore.Groups.First(g => g.Id == groupId);
+                    foreach (var gs in group.GroupSubjects)
+                    {
+                        using (var cmd = new SQLiteCommand(
+                            @"INSERT INTO Subjects (StudentId, GroupSubjectId, Name, Semester1Grade, Semester2Grade, FinalGrade) 
+                              VALUES (@studentId, @gsId, @name, 0, 0, 0); SELECT last_insert_rowid();", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@studentId", student.Id);
+                            cmd.Parameters.AddWithValue("@gsId", gs.Id);
+                            cmd.Parameters.AddWithValue("@name", gs.Name);
+                            var subId = Convert.ToInt32(cmd.ExecuteScalar());
+                            student.Subjects.Add(new Subject
+                            {
+                                Id = subId,
+                                StudentId = student.Id,
+                                GroupSubjectId = gs.Id,
+                                Name = gs.Name,
+                                Semester1Grade = 0,
+                                Semester2Grade = 0,
+                                FinalGrade = 0
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка создания предметов для студента: {ex.Message}", "Ошибка БД", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }

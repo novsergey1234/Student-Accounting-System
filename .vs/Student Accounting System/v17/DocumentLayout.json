@@ -3,8 +3,36 @@
   "WorkspaceRootPath": "C:\\SmolGU\\Student Accounting System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|c:\\smolgu\\student accounting system\\student accounting system\\formgroups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|c:\\smolgu\\student accounting system\\student accounting system\\formstudents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|solutionrelative:student accounting system\\formstudents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|C:\\SmolGU\\Student Accounting System\\student accounting system\\formgroups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|solutionrelative:student accounting system\\formgroups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|c:\\smolgu\\student accounting system\\student accounting system\\formstudentcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|solutionrelative:student accounting system\\formstudentcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|c:\\smolgu\\student accounting system\\student accounting system\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|solutionrelative:student accounting system\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|c:\\smolgu\\student accounting system\\student accounting system\\formgroupedit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|solutionrelative:student accounting system\\formgroupedit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|c:\\smolgu\\student accounting system\\student accounting system\\formgradesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|solutionrelative:student accounting system\\formgradesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|C:\\SmolGU\\Student Accounting System\\student accounting system\\formstudentcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|solutionrelative:student accounting system\\formstudentcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|C:\\SmolGU\\Student Accounting System\\student accounting system\\formstudentcard.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF66C491-6DC4-464D-BA52-EB4138BB1079}|Student Accounting System\\Student Accounting System.csproj|solutionrelative:student accounting system\\formstudentcard.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,6 +51,93 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "FormStudents.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\SmolGU\\Student Accounting System\\Student Accounting System\\FormStudents.cs",
+              "RelativeDocumentMoniker": "Student Accounting System\\FormStudents.cs",
+              "ToolTip": "C:\\SmolGU\\Student Accounting System\\Student Accounting System\\FormStudents.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
+              "RelativeToolTip": "Student Accounting System\\FormStudents.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T17:52:13.227Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DatabaseService.cs",
+              "DocumentMoniker": "C:\\SmolGU\\Student Accounting System\\Student Accounting System\\DatabaseService.cs",
+              "RelativeDocumentMoniker": "Student Accounting System\\DatabaseService.cs",
+              "ToolTip": "C:\\SmolGU\\Student Accounting System\\Student Accounting System\\DatabaseService.cs",
+              "RelativeToolTip": "Student Accounting System\\DatabaseService.cs",
+              "ViewState": "AQIAAFACAAAAAAAAAAAvwFICAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T17:42:09.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormGroupEdit.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\SmolGU\\Student Accounting System\\Student Accounting System\\FormGroupEdit.cs",
+              "RelativeDocumentMoniker": "Student Accounting System\\FormGroupEdit.cs",
+              "ToolTip": "C:\\SmolGU\\Student Accounting System\\Student Accounting System\\FormGroupEdit.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "Student Accounting System\\FormGroupEdit.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T17:41:58.35Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormGradeSheet.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\SmolGU\\Student Accounting System\\Student Accounting System\\FormGradeSheet.cs",
+              "RelativeDocumentMoniker": "Student Accounting System\\FormGradeSheet.cs",
+              "ToolTip": "C:\\SmolGU\\Student Accounting System\\Student Accounting System\\FormGradeSheet.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "Student Accounting System\\FormGradeSheet.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T17:41:57.053Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormStudentCard.cs",
+              "DocumentMoniker": "C:\\SmolGU\\Student Accounting System\\Student Accounting System\\FormStudentCard.cs",
+              "RelativeDocumentMoniker": "Student Accounting System\\FormStudentCard.cs",
+              "ToolTip": "C:\\SmolGU\\Student Accounting System\\Student Accounting System\\FormStudentCard.cs",
+              "RelativeToolTip": "Student Accounting System\\FormStudentCard.cs",
+              "ViewState": "AQIAAOcAAAAAAAAAAAAcwPAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T17:28:44.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FormStudentCard.Designer.cs",
+              "DocumentMoniker": "C:\\SmolGU\\Student Accounting System\\Student Accounting System\\FormStudentCard.Designer.cs",
+              "RelativeDocumentMoniker": "Student Accounting System\\FormStudentCard.Designer.cs",
+              "ToolTip": "C:\\SmolGU\\Student Accounting System\\Student Accounting System\\FormStudentCard.Designer.cs",
+              "RelativeToolTip": "Student Accounting System\\FormStudentCard.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T17:21:33.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormStudentCard.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\SmolGU\\Student Accounting System\\Student Accounting System\\FormStudentCard.cs",
+              "RelativeDocumentMoniker": "Student Accounting System\\FormStudentCard.cs",
+              "ToolTip": "C:\\SmolGU\\Student Accounting System\\Student Accounting System\\FormStudentCard.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "Student Accounting System\\FormStudentCard.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T17:21:35.351Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "FormGroups.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "C:\\SmolGU\\Student Accounting System\\Student Accounting System\\FormGroups.cs",
               "RelativeDocumentMoniker": "Student Accounting System\\FormGroups.cs",

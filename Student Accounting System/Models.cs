@@ -11,9 +11,18 @@ namespace Student_Accounting_System
         Debtor     // Должник
     }
 
+    public class GroupSubject
+    {
+        public int Id { get; set; }
+        public int GroupId { get; set; }
+        public string Name { get; set; }
+    }
+
     public class Subject
     {
         public int Id { get; set; }
+        public int StudentId { get; set; }
+        public int? GroupSubjectId { get; set; }
         public string Name { get; set; }
         public int Semester1Grade { get; set; }
         public int Semester2Grade { get; set; }
@@ -66,6 +75,7 @@ namespace Student_Accounting_System
         public string Name { get; set; }
         public List<string> SubGroups { get; set; } = new List<string>();
         public List<Student> Students { get; set; } = new List<Student>();
+        public List<GroupSubject> GroupSubjects { get; set; } = new List<GroupSubject>();
 
         public string FullName => Name;
     }
@@ -75,10 +85,12 @@ namespace Student_Accounting_System
         private static int _nextStudentId = 100;
         private static int _nextGroupId = 10;
         private static int _nextSubjectId = 200;
+        private static int _nextGroupSubjectId = 50;
 
         public static int NextStudentId() => _nextStudentId++;
         public static int NextGroupId() => _nextGroupId++;
         public static int NextSubjectId() => _nextSubjectId++;
+        public static int NextGroupSubjectId() => _nextGroupSubjectId++;
 
         public static List<Group> Groups { get; } = new List<Group>();
 
@@ -106,6 +118,9 @@ namespace Student_Accounting_System
                         if (allSubjects.Count > 0)
                             _nextSubjectId = allSubjects.Max(sub => sub.Id) + 1;
                     }
+                    var allGroupSubjects = Groups.SelectMany(g => g.GroupSubjects).ToList();
+                    if (allGroupSubjects.Count > 0)
+                        _nextGroupSubjectId = allGroupSubjects.Max(gs => gs.Id) + 1;
                 }
             }
         }

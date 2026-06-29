@@ -189,5 +189,23 @@ namespace Student_Accounting_System
         {
             this.Close();
         }
+
+        private void btnGroupSubjects_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new FormGroupSubjects(_group))
+            {
+                dlg.ShowDialog(this);
+            }
+            LoadStudents(_group.Students);
+        }
+
+        private void btnGradeSheet_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormGradeSheet(_group))
+            {
+                form.ShowDialog(this);
+            }
+            LoadStudents(_group.Students);
+        }
     }
 }

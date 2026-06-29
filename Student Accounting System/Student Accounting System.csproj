@@ -77,6 +77,18 @@
     <Compile Include="FormGroupEdit.Designer.cs">
       <DependentUpon>FormGroupEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGroupSubjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGroupSubjects.Designer.cs">
+      <DependentUpon>FormGroupSubjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGradeSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGradeSheet.Designer.cs">
+      <DependentUpon>FormGradeSheet.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormStudentEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +100,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormGroups.resx">
       <DependentUpon>FormGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGroupSubjects.resx">
+      <DependentUpon>FormGroupSubjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGradeSheet.resx">
+      <DependentUpon>FormGradeSheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStudentCard.resx">
       <DependentUpon>FormStudentCard.cs</DependentUpon>

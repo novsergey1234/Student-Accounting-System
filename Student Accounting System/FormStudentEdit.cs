@@ -96,6 +96,21 @@ namespace Student_Accounting_System
                     Status      = (StudentStatus)cmbStatus.SelectedIndex,
                     SubGroup    = cmbSubGroup.SelectedItem?.ToString() ?? ""
                 };
+
+                // Auto-create subjects from group's shared subjects
+                foreach (var gs in _group.GroupSubjects)
+                {
+                    ResultStudent.Subjects.Add(new Subject
+                    {
+                        Id = DataStore.NextSubjectId(),
+                        StudentId = ResultStudent.Id,
+                        GroupSubjectId = gs.Id,
+                        Name = gs.Name,
+                        Semester1Grade = 0,
+                        Semester2Grade = 0,
+                        FinalGrade = 0
+                    });
+                }
             }
 
             this.DialogResult = DialogResult.OK;

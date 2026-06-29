@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Student_Accounting_System
@@ -172,19 +173,17 @@ namespace Student_Accounting_System
         private void btnAddSubject_Click(object sender, EventArgs e)
         {
             string name = Microsoft.VisualBasic.Interaction.InputBox(
-                "Введите название предмета:", "Добавить предмет", "");
+                "Введите название предмета:", "Добавить предмет в группу", "");
             if (string.IsNullOrWhiteSpace(name)) return;
 
-            var newSubject = new Subject
+            var gs = new GroupSubject
             {
-                Id = DataStore.NextSubjectId(),
-                Name = name.Trim(),
-                Semester1Grade = 0,
-                Semester2Grade = 0,
-                FinalGrade = 0
+                Id = DataStore.NextGroupSubjectId(),
+                GroupId = _group.Id,
+                Name = name.Trim()
             };
-            _student.Subjects.Add(newSubject);
-            DatabaseService.SaveSubject(newSubject, _student.Id);
+            _group.GroupSubjects.Add(gs);
+            DatabaseService.SaveGroupSubject(gs, _group.Id);
             LoadGrades();
         }
 
@@ -195,12 +194,30 @@ namespace Student_Accounting_System
             if (idx < 0 || idx >= _student.Subjects.Count) return;
 
             var sub = _student.Subjects[idx];
-            if (MessageBox.Show($"Удалить предмет «{sub.Name}»?", "Подтверждение",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (sub.GroupSubjectId == null)
             {
-                DatabaseService.DeleteSubject(sub.Id);
-                _student.Subjects.RemoveAt(idx);
-                LoadGrades();
+                // Legacy individual subject - delete just this one
+                if (MessageBox.Show($"Удалить предмет «{sub.Name}» у этого студента?", "Подтверждение",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    DatabaseService.DeleteSubject(sub.Id);
+                    _student.Subjects.RemoveAt(idx);
+                    LoadGrades();
+                }
+            }
+            else
+            {
+                // Shared subject - delete from entire group
+                var gs = _group.GroupSubjects.FirstOrDefault(g => g.Id == sub.GroupSubjectId);
+                if (gs != null)
+                {
+                    if (MessageBox.Show($"Удалить предмет «{gs.Name}» из группы?\nЭто удалит оценки у всех студентов.",
+                        "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        DatabaseService.DeleteGroupSubject(gs.Id);
+                        LoadGrades();
+                    }
+                }
             }
         }
 
