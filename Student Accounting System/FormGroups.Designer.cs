@@ -310,6 +310,8 @@ namespace Student_Accounting_System
             // 
             this.dataGridViewGroups.AllowUserToAddRows = false;
             this.dataGridViewGroups.AllowUserToDeleteRows = false;
+            this.dataGridViewGroups.AllowUserToResizeColumns = false;
+            this.dataGridViewGroups.AllowUserToResizeRows = false;
             dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(52)))));
             this.dataGridViewGroups.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewGroups.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 

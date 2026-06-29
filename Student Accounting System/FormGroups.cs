@@ -49,6 +49,17 @@ namespace Student_Accounting_System
             lblAvgGrade.Text = avg > 0 ? avg.ToString("F2") : "—";
         }
 
+        private void RefreshData()
+        {
+            _allGroups = DataStore.Groups;
+            string query = txtSearch.Text.Trim().ToLower();
+            var current = string.IsNullOrEmpty(query)
+                ? _allGroups
+                : _allGroups.Where(g => g.Name.ToLower().Contains(query)).ToList();
+            LoadGroups(current);
+            UpdateStats();
+        }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string query = txtSearch.Text.Trim().ToLower();
@@ -94,6 +105,12 @@ namespace Student_Accounting_System
             if (idx < 0 || idx >= current.Count) return;
             var group = current[idx];
             var form = new FormStudents(group);
+            form.FormClosed += (s, e) =>
+            {
+                RefreshData();
+                this.Show();
+            };
+            this.Hide();
             form.Show();
         }
 

@@ -378,6 +378,8 @@ namespace Student_Accounting_System
             // 
             this.dataGridViewStudents.AllowUserToAddRows = false;
             this.dataGridViewStudents.AllowUserToDeleteRows = false;
+            this.dataGridViewStudents.AllowUserToResizeColumns = false;
+            this.dataGridViewStudents.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(30, 32, 52);
             this.dataGridViewStudents.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewStudents.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;

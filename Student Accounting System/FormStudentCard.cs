@@ -159,12 +159,14 @@ namespace Student_Accounting_System
             lblStudentName.Text = _student.FullName;
 
             DatabaseService.UpdateStudent(_student);
-            MessageBox.Show("Данные сохранены.", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            LoadStudentData();
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
 
         private void btnAddSubject_Click(object sender, EventArgs e)

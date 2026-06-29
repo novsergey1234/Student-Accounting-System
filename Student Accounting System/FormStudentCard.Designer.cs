@@ -525,6 +525,8 @@ namespace Student_Accounting_System
             //
             this.dataGridViewGrades.AllowUserToAddRows = false;
             this.dataGridViewGrades.AllowUserToDeleteRows = false;
+            this.dataGridViewGrades.AllowUserToResizeColumns = false;
+            this.dataGridViewGrades.AllowUserToResizeRows = false;
             this.dataGridViewGrades.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewGrades.BackgroundColor = System.Drawing.Color.FromArgb(26, 28, 46);
             this.dataGridViewGrades.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -540,7 +542,7 @@ namespace Student_Accounting_System
             this.dataGridViewGrades.MultiSelect = false;
             this.dataGridViewGrades.Name = "dataGridViewGrades";
             this.dataGridViewGrades.RowHeadersVisible = false;
-            this.dataGridViewGrades.RowTemplate.Height = 48;
+            this.dataGridViewGrades.RowTemplate.Height = 36;
             this.dataGridViewGrades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewGrades.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGrades_CellEndEdit);
             this.dataGridViewGrades.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewGrades_RowPrePaint);

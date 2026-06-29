@@ -137,9 +137,11 @@ namespace Student_Accounting_System
         {
             if (rowIndex < 0 || rowIndex >= _filtered.Count) return;
             var student = _filtered[rowIndex];
-            var form = new FormStudentCard(student, _group);
-            form.FormClosed += (s, e) => LoadStudents(_group.Students);
-            form.Show();
+            using (var dlg = new FormStudentCard(student, _group))
+            {
+                dlg.ShowDialog(this);
+            }
+            LoadStudents(_group.Students);
         }
 
         private void btnAddStudent_Click(object sender, EventArgs e)
