@@ -13,6 +13,7 @@ namespace Student_Accounting_System
         public FormStudentCard(Student student, Group group)
         {
             InitializeComponent();
+            txtBirthDate.Culture = CultureInfo.InvariantCulture;
             _student = student;
             _group = group;
             

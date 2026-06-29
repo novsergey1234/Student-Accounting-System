@@ -1,5 +1,4 @@
 using System;
-using System.Globalization;
 
 namespace Student_Accounting_System
 {
@@ -28,7 +27,6 @@ namespace Student_Accounting_System
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.lblHeaderTitle = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
@@ -155,7 +153,6 @@ namespace Student_Accounting_System
             this.dtpBirthDate.Mask = "00.00.0000";
             this.dtpBirthDate.Name = "dtpBirthDate";
             this.dtpBirthDate.ValidatingType = typeof(DateTime);
-            this.dtpBirthDate.Culture = CultureInfo.InvariantCulture;
             this.dtpBirthDate.Size = new System.Drawing.Size(270, 28);
             this.dtpBirthDate.TabIndex = 3;
             //
@@ -289,6 +286,7 @@ namespace Student_Accounting_System
             this.btnSave.Size = new System.Drawing.Size(130, 32);
             this.btnSave.Text = "Сохранить";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             //
             // btnCancel
             //
@@ -305,6 +303,7 @@ namespace Student_Accounting_System
             this.btnCancel.Size = new System.Drawing.Size(130, 32);
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             //
             // FormStudentEdit
             //
@@ -341,9 +340,6 @@ namespace Student_Accounting_System
             this.Name = "FormStudentEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Студент";
-            // Events
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.panelButtons.ResumeLayout(false);

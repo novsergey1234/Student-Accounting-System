@@ -25,7 +25,6 @@ namespace Student_Accounting_System
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.lblHeaderTitle = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -124,6 +123,7 @@ namespace Student_Accounting_System
             this.btnSave.Size = new System.Drawing.Size(130, 32);
             this.btnSave.Text = "Сохранить";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             //
             // btnCancel
             //
@@ -140,6 +140,7 @@ namespace Student_Accounting_System
             this.btnCancel.Size = new System.Drawing.Size(130, 32);
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             //
             // FormGroupEdit
             //
@@ -162,9 +163,6 @@ namespace Student_Accounting_System
             this.Name = "FormGroupEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Группа";
-            // Events
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.panelButtons.ResumeLayout(false);

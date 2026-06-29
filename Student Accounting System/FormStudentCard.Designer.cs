@@ -1,5 +1,4 @@
 using System;
-using System.Globalization;
 
 namespace Student_Accounting_System
 {
@@ -28,7 +27,6 @@ namespace Student_Accounting_System
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblStudentName = new System.Windows.Forms.Label();
@@ -90,8 +88,9 @@ namespace Student_Accounting_System
             this.panelHeader.Controls.Add(this.lblGroupName);
             this.panelHeader.Controls.Add(this.lblAvgGrade);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeader.Height = 72;
+            this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(820, 72);
             //
             // btnBack
             //
@@ -107,8 +106,10 @@ namespace Student_Accounting_System
             this.btnBack.MinimumSize = new System.Drawing.Size(90, 28);
             this.btnBack.Name = "btnBack";
             this.btnBack.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.btnBack.Size = new System.Drawing.Size(90, 28);
             this.btnBack.Text = "← Назад";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             //
             // lblStudentName
             //
@@ -149,6 +150,7 @@ namespace Student_Accounting_System
             this.tabControl.Name = "tabControl";
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl.TabPages.AddRange(new System.Windows.Forms.TabPage[] { this.tabPersonal, this.tabGrades });
+            this.tabControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl_DrawItem);
             //
             // tabPersonal
             //
@@ -262,7 +264,7 @@ namespace Student_Accounting_System
             this.lblBirthDate.Name = "lblBirthDate";
             this.lblBirthDate.Text = "Дата рождения (дд.мм.гггг)";
             //
-            // txtBirthDate  (MaskedTextBox — поддерживает BackColor в отличие от DateTimePicker)
+            // txtBirthDate
             //
             this.txtBirthDate.BackColor = System.Drawing.Color.FromArgb(32, 34, 54);
             this.txtBirthDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -272,7 +274,6 @@ namespace Student_Accounting_System
             this.txtBirthDate.Mask = "00.00.0000";
             this.txtBirthDate.Name = "txtBirthDate";
             this.txtBirthDate.ValidatingType = typeof(DateTime);
-            this.txtBirthDate.Culture = CultureInfo.InvariantCulture;
             this.txtBirthDate.Size = new System.Drawing.Size(360, 28);
             //
             // lblPhone
@@ -403,6 +404,7 @@ namespace Student_Accounting_System
             this.btnSave.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.btnSave.Text = "💾 Сохранить";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             //
             // btnCancel
             //
@@ -420,6 +422,7 @@ namespace Student_Accounting_System
             this.btnCancel.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.btnCancel.Text = "✕ Отмена";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             //
             // btnExcelPersonal
             //
@@ -539,7 +542,8 @@ namespace Student_Accounting_System
             this.dataGridViewGrades.RowHeadersVisible = false;
             this.dataGridViewGrades.RowTemplate.Height = 48;
             this.dataGridViewGrades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            // Styles
+            this.dataGridViewGrades.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGrades_CellEndEdit);
+            this.dataGridViewGrades.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewGrades_RowPrePaint);
             this.dataGridViewGrades.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(20, 22, 40);
             this.dataGridViewGrades.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(150, 150, 180);
             this.dataGridViewGrades.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -607,6 +611,7 @@ namespace Student_Accounting_System
             this.btnAddSubject.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.btnAddSubject.Text = "+ Добавить предмет";
             this.btnAddSubject.UseVisualStyleBackColor = false;
+            this.btnAddSubject.Click += new System.EventHandler(this.btnAddSubject_Click);
             //
             // btnDeleteSubject
             //
@@ -624,6 +629,7 @@ namespace Student_Accounting_System
             this.btnDeleteSubject.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.btnDeleteSubject.Text = "🗑 Удалить предмет";
             this.btnDeleteSubject.UseVisualStyleBackColor = false;
+            this.btnDeleteSubject.Click += new System.EventHandler(this.btnDeleteSubject_Click);
             //
             // btnExcelGrades
             //
@@ -695,15 +701,6 @@ namespace Student_Accounting_System
             this.Name = "FormStudentCard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Карточка студента";
-            // Events
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            this.btnAddSubject.Click += new System.EventHandler(this.btnAddSubject_Click);
-            this.btnDeleteSubject.Click += new System.EventHandler(this.btnDeleteSubject_Click);
-            this.dataGridViewGrades.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGrades_CellEndEdit);
-            this.dataGridViewGrades.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewGrades_RowPrePaint);
-            this.tabControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl_DrawItem);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGrades)).EndInit();
             this.ResumeLayout(false);
         }

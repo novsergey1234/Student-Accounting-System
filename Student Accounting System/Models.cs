@@ -87,7 +87,7 @@ namespace Student_Accounting_System
             var loadedGroups = DatabaseService.LoadAllData();
             if (loadedGroups.Count == 0)
             {
-                SeedData();
+                //SeedData();
             }
             else
             {

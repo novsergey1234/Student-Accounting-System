@@ -23,3 +23,9 @@ C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug
 C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student_Accounting_System.FormStudents.resources
 C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student_Accounting_System.FormGroups.resources
 C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student_Accounting_System.FormStudentCard.resources
+C:\SmolGU\Student Accounting System\Student Accounting System\bin\Debug\System.Data.SQLite.dll
+C:\SmolGU\Student Accounting System\Student Accounting System\bin\Debug\System.Data.SQLite.xml
+C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student_Accounting_System.FormGroups.resources
+C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student_Accounting_System.FormStudentCard.resources
+C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student_Accounting_System.FormStudents.resources
+C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student .178FFAF4.Up2Date

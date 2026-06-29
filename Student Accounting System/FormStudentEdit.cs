@@ -13,6 +13,7 @@ namespace Student_Accounting_System
         public FormStudentEdit(Student existing, Group group)
         {
             InitializeComponent();
+            dtpBirthDate.Culture = CultureInfo.InvariantCulture;
             _existing = existing;
             _group = group;
 
