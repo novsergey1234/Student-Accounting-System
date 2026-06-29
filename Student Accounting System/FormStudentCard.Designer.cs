@@ -1,3 +1,6 @@
+using System;
+using System.Globalization;
+
 namespace Student_Accounting_System
 {
     partial class FormStudentCard
@@ -154,7 +157,7 @@ namespace Student_Accounting_System
             this.tabPersonal.Controls.Add(this.panelPersonalForm);
             this.tabPersonal.ForeColor = System.Drawing.Color.White;
             this.tabPersonal.Name = "tabPersonal";
-            this.tabPersonal.Text = "  👤 Личные данные  ";
+            this.tabPersonal.Text = "   Личные данные  ";
             //
             // panelPersonalForm
             //
@@ -268,6 +271,8 @@ namespace Student_Accounting_System
             this.txtBirthDate.Location = new System.Drawing.Point(396, 128);
             this.txtBirthDate.Mask = "00.00.0000";
             this.txtBirthDate.Name = "txtBirthDate";
+            this.txtBirthDate.ValidatingType = typeof(DateTime);
+            this.txtBirthDate.Culture = CultureInfo.InvariantCulture;
             this.txtBirthDate.Size = new System.Drawing.Size(360, 28);
             //
             // lblPhone
@@ -482,7 +487,7 @@ namespace Student_Accounting_System
             this.tabGrades.Controls.Add(this.panelGradesButtons);
             this.tabGrades.ForeColor = System.Drawing.Color.White;
             this.tabGrades.Name = "tabGrades";
-            this.tabGrades.Text = "  📊 Оценки  ";
+            this.tabGrades.Text = "  Оценки  ";
             //
             // panelGradesHeader
             //

@@ -32,11 +32,19 @@ namespace Student_Accounting_System
             }
         }
 
+        private static void EnableForeignKeys(SQLiteConnection conn)
+        {
+            using (var cmd = new SQLiteCommand("PRAGMA foreign_keys = ON;", conn))
+            {
+                cmd.ExecuteNonQuery();
+            }
+        }
         private static void CreateTables()
         {
             using (var conn = new SQLiteConnection(ConnectionString))
             {
                 conn.Open();
+                EnableForeignKeys(conn);
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
@@ -84,8 +92,8 @@ namespace Student_Accounting_System
                 using (var conn = new SQLiteConnection(ConnectionString))
                 {
                     conn.Open();
+                    EnableForeignKeys(conn);
 
-                    // Load groups
                     using (var cmd = new SQLiteCommand("SELECT Id, Name, SubGroups FROM Groups", conn))
                     using (var reader = cmd.ExecuteReader())
                     {
@@ -105,7 +113,6 @@ namespace Student_Accounting_System
                         }
                     }
 
-                    // Load students for each group
                     foreach (var group in groups)
                     {
                         using (var cmd = new SQLiteCommand(
@@ -179,6 +186,8 @@ namespace Student_Accounting_System
                 using (var conn = new SQLiteConnection(ConnectionString))
                 {
                     conn.Open();
+                    EnableForeignKeys(conn);
+
                     using (var cmd = new SQLiteCommand(
                         "INSERT INTO Groups (Name, SubGroups) VALUES (@name, @subGroups); SELECT last_insert_rowid();", 
                         conn))
@@ -204,6 +213,8 @@ namespace Student_Accounting_System
                 using (var conn = new SQLiteConnection(ConnectionString))
                 {
                     conn.Open();
+                    EnableForeignKeys(conn);
+
                     using (var cmd = new SQLiteCommand(
                         "UPDATE Groups SET Name = @name, SubGroups = @subGroups WHERE Id = @id", 
                         conn))
@@ -230,6 +241,22 @@ namespace Student_Accounting_System
                 using (var conn = new SQLiteConnection(ConnectionString))
                 {
                     conn.Open();
+                    EnableForeignKeys(conn);
+
+                    // Сначала удаляем все предметы студентов группы
+                    using (var cmd = new SQLiteCommand(
+                        "DELETE FROM Subjects WHERE StudentId IN (SELECT Id FROM Students WHERE GroupId = @id)", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", groupId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    // Затем удаляем студентов группы
+                    using (var cmd = new SQLiteCommand("DELETE FROM Students WHERE GroupId = @id", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", groupId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    // Наконец удаляем саму группу
                     using (var cmd = new SQLiteCommand("DELETE FROM Groups WHERE Id = @id", conn))
                     {
                         cmd.Parameters.AddWithValue("@id", groupId);
@@ -252,6 +279,8 @@ namespace Student_Accounting_System
                 using (var conn = new SQLiteConnection(ConnectionString))
                 {
                     conn.Open();
+                    EnableForeignKeys(conn);
+
                     using (var cmd = new SQLiteCommand(
                         @"INSERT INTO Students (GroupId, LastName, FirstName, MiddleName, BirthDate, Phone, Email, Address, Status, SubGroup) 
                           VALUES (@groupId, @lastName, @firstName, @middleName, @birthDate, @phone, @email, @address, @status, @subGroup);
@@ -293,6 +322,8 @@ namespace Student_Accounting_System
                 using (var conn = new SQLiteConnection(ConnectionString))
                 {
                     conn.Open();
+                    EnableForeignKeys(conn);
+
                     using (var cmd = new SQLiteCommand(
                         @"UPDATE Students SET LastName = @lastName, FirstName = @firstName, MiddleName = @middleName, 
                           BirthDate = @birthDate, Phone = @phone, Email = @email, Address = @address, Status = @status, SubGroup = @subGroup 
@@ -328,6 +359,8 @@ namespace Student_Accounting_System
                 using (var conn = new SQLiteConnection(ConnectionString))
                 {
                     conn.Open();
+                    EnableForeignKeys(conn);
+
                     using (var cmd = new SQLiteCommand("DELETE FROM Students WHERE Id = @id", conn))
                     {
                         cmd.Parameters.AddWithValue("@id", studentId);
@@ -352,6 +385,8 @@ namespace Student_Accounting_System
                 {
                     conn = new SQLiteConnection(ConnectionString);
                     conn.Open();
+                    EnableForeignKeys(conn);
+
                     shouldCloseConnection = true;
                 }
 
@@ -395,6 +430,8 @@ namespace Student_Accounting_System
                 using (var conn = new SQLiteConnection(ConnectionString))
                 {
                     conn.Open();
+                    EnableForeignKeys(conn);
+
                     using (var cmd = new SQLiteCommand(
                         @"UPDATE Subjects SET Name = @name, Semester1Grade = @sem1, Semester2Grade = @sem2, FinalGrade = @final 
                           WHERE Id = @id", 
@@ -424,6 +461,8 @@ namespace Student_Accounting_System
                 using (var conn = new SQLiteConnection(ConnectionString))
                 {
                     conn.Open();
+                    EnableForeignKeys(conn);
+
                     using (var cmd = new SQLiteCommand("DELETE FROM Subjects WHERE Id = @id", conn))
                     {
                         cmd.Parameters.AddWithValue("@id", subjectId);

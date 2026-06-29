@@ -1,3 +1,6 @@
+using System;
+using System.Globalization;
+
 namespace Student_Accounting_System
 {
     partial class FormStudentEdit
@@ -35,7 +38,7 @@ namespace Student_Accounting_System
             this.lblMiddleName = new System.Windows.Forms.Label();
             this.txtMiddleName = new System.Windows.Forms.TextBox();
             this.lblBirthDate = new System.Windows.Forms.Label();
-            this.txtBirthDate = new System.Windows.Forms.MaskedTextBox();
+            this.dtpBirthDate = new System.Windows.Forms.MaskedTextBox();
             this.lblPhone = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -139,19 +142,22 @@ namespace Student_Accounting_System
             this.lblBirthDate.ForeColor = System.Drawing.Color.FromArgb(150, 150, 180);
             this.lblBirthDate.Location = new System.Drawing.Point(310, 122);
             this.lblBirthDate.Name = "lblBirthDate";
-            this.lblBirthDate.Size = new System.Drawing.Size(170, 15);
-            this.lblBirthDate.Text = "Дата рождения (дд.мм.гггг):";
+            this.lblBirthDate.Size = new System.Drawing.Size(110, 15);
+            this.lblBirthDate.Text = "Дата рождения:";
             //
-            // txtBirthDate
+            // dtpBirthDate
             //
-            this.txtBirthDate.BackColor = System.Drawing.Color.FromArgb(32, 34, 54);
-            this.txtBirthDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBirthDate.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtBirthDate.ForeColor = System.Drawing.Color.FromArgb(200, 200, 220);
-            this.txtBirthDate.Location = new System.Drawing.Point(310, 140);
-            this.txtBirthDate.Mask = "00.00.0000";
-            this.txtBirthDate.Name = "txtBirthDate";
-            this.txtBirthDate.Size = new System.Drawing.Size(270, 28);
+            this.dtpBirthDate.BackColor = System.Drawing.Color.FromArgb(32, 34, 54);
+            this.dtpBirthDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dtpBirthDate.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dtpBirthDate.ForeColor = System.Drawing.Color.FromArgb(200, 200, 220);
+            this.dtpBirthDate.Location = new System.Drawing.Point(310, 140);
+            this.dtpBirthDate.Mask = "00.00.0000";
+            this.dtpBirthDate.Name = "dtpBirthDate";
+            this.dtpBirthDate.ValidatingType = typeof(DateTime);
+            this.dtpBirthDate.Culture = CultureInfo.InvariantCulture;
+            this.dtpBirthDate.Size = new System.Drawing.Size(270, 28);
+            this.dtpBirthDate.TabIndex = 3;
             //
             // lblPhone
             //
@@ -316,7 +322,7 @@ namespace Student_Accounting_System
             this.Controls.Add(this.lblMiddleName);
             this.Controls.Add(this.txtMiddleName);
             this.Controls.Add(this.lblBirthDate);
-            this.Controls.Add(this.txtBirthDate);
+            this.Controls.Add(this.dtpBirthDate);
             this.Controls.Add(this.lblPhone);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.lblEmail);
@@ -356,7 +362,7 @@ namespace Student_Accounting_System
         private System.Windows.Forms.Label lblMiddleName;
         private System.Windows.Forms.TextBox txtMiddleName;
         private System.Windows.Forms.Label lblBirthDate;
-        private System.Windows.Forms.MaskedTextBox txtBirthDate;
+        private System.Windows.Forms.MaskedTextBox dtpBirthDate;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label lblEmail;

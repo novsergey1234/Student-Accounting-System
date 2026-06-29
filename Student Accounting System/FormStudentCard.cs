@@ -94,12 +94,37 @@ namespace Student_Accounting_System
             var sub = _student.Subjects[e.RowIndex];
             var row = dataGridViewGrades.Rows[e.RowIndex];
 
-            if (TryParseGradeCell(row.Cells["colSem1"], out int s1)) sub.Semester1Grade = s1;
-            if (TryParseGradeCell(row.Cells["colSem2"], out int s2)) sub.Semester2Grade = s2;
-            if (TryParseGradeCell(row.Cells["colFinal"], out int fin)) sub.FinalGrade = fin;
+            bool sem1Changed = false, sem2Changed = false;
+            if (TryParseGradeCell(row.Cells["colSem1"], out int s1))
+            {
+                sub.Semester1Grade = s1;
+                sem1Changed = true;
+            }
+            if (TryParseGradeCell(row.Cells["colSem2"], out int s2))
+            {
+                sub.Semester2Grade = s2;
+                sem2Changed = true;
+            }
+            
+            // Автоматически рассчитываем итоговую оценку, если изменились семестровые
+            if ((sem1Changed || sem2Changed) && e.ColumnIndex != dataGridViewGrades.Columns["colFinal"].Index)
+            {
+                if (sub.Semester1Grade > 0 && sub.Semester2Grade > 0)
+                {
+                    // Округляем среднее арифметическое до ближайшего целого
+                    sub.FinalGrade = (int)Math.Round((sub.Semester1Grade + sub.Semester2Grade) / 2.0);
+                    row.Cells["colFinal"].Value = $"● {sub.FinalGrade}";
+                }
+            }
+            else if (TryParseGradeCell(row.Cells["colFinal"], out int fin))
+            {
+                // Если пользователь вручную изменил итоговую оценку, используем её
+                sub.FinalGrade = fin;
+            }
 
             DatabaseService.UpdateSubject(sub);
             UpdateGradesAvg();
+            dataGridViewGrades.InvalidateRow(e.RowIndex);
         }
 
         private bool TryParseGradeCell(DataGridViewCell cell, out int value)

@@ -16,7 +16,6 @@ namespace Student_Accounting_System
             _existing = existing;
             _group = group;
 
-            // Populate subgroup dropdown
             if (group != null && group.SubGroups.Count > 0)
             {
                 foreach (var sg in group.SubGroups)
@@ -30,15 +29,16 @@ namespace Student_Accounting_System
                 txtLastName.Text = existing.LastName;
                 txtFirstName.Text = existing.FirstName;
                 txtMiddleName.Text = existing.MiddleName;
-                txtBirthDate.Text = existing.BirthDate == DateTime.MinValue
+
+                dtpBirthDate.Text = existing.BirthDate == DateTime.MinValue
                     ? ""
                     : existing.BirthDate.ToString("dd.MM.yyyy");
+
                 txtPhone.Text = existing.Phone;
                 txtEmail.Text = existing.Email;
                 txtAddress.Text = existing.Address;
                 cmbStatus.SelectedIndex = (int)existing.Status;
-                
-                // Set subgroup if exists
+
                 if (!string.IsNullOrEmpty(existing.SubGroup) && cmbSubGroup.Items.Contains(existing.SubGroup))
                     cmbSubGroup.SelectedItem = existing.SubGroup;
             }
@@ -56,22 +56,27 @@ namespace Student_Accounting_System
                 return;
             }
 
+            // ★ Корректный парсинг даты из MaskedTextBox
             DateTime birthDate = DateTime.MinValue;
-            if (!string.IsNullOrWhiteSpace(txtBirthDate.Text.Replace(".", "").Trim()))
-                DateTime.TryParseExact(txtBirthDate.Text, "dd.MM.yyyy",
-                    CultureInfo.InvariantCulture, DateTimeStyles.None, out birthDate);
+            if (!DateTime.TryParseExact(dtpBirthDate.Text, "dd.MM.yyyy",
+                    CultureInfo.InvariantCulture, DateTimeStyles.None, out birthDate))
+            {
+                MessageBox.Show("Введите корректную дату рождения в формате дд.мм.гггг",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             if (_existing != null)
             {
-                _existing.LastName = txtLastName.Text.Trim();
+                _existing.LastName  = txtLastName.Text.Trim();
                 _existing.FirstName = txtFirstName.Text.Trim();
                 _existing.MiddleName = txtMiddleName.Text.Trim();
-                _existing.BirthDate = birthDate;
-                _existing.Phone = txtPhone.Text.Trim();
-                _existing.Email = txtEmail.Text.Trim();
-                _existing.Address = txtAddress.Text.Trim();
-                _existing.Status = (StudentStatus)cmbStatus.SelectedIndex;
-                _existing.SubGroup = cmbSubGroup.SelectedItem?.ToString() ?? "";
+                _existing.BirthDate = birthDate;              // ★ теперь точно корректная дата
+                _existing.Phone     = txtPhone.Text.Trim();
+                _existing.Email     = txtEmail.Text.Trim();
+                _existing.Address   = txtAddress.Text.Trim();
+                _existing.Status    = (StudentStatus)cmbStatus.SelectedIndex;
+                _existing.SubGroup  = cmbSubGroup.SelectedItem?.ToString() ?? "";
                 ResultStudent = _existing;
                 DatabaseService.UpdateStudent(_existing);
             }
@@ -79,18 +84,17 @@ namespace Student_Accounting_System
             {
                 ResultStudent = new Student
                 {
-                    Id = DataStore.NextStudentId(),
-                    LastName = txtLastName.Text.Trim(),
-                    FirstName = txtFirstName.Text.Trim(),
-                    MiddleName = txtMiddleName.Text.Trim(),
-                    BirthDate = birthDate,
-                    Phone = txtPhone.Text.Trim(),
-                    Email = txtEmail.Text.Trim(),
-                    Address = txtAddress.Text.Trim(),
-                    Status = (StudentStatus)cmbStatus.SelectedIndex,
-                    SubGroup = cmbSubGroup.SelectedItem?.ToString() ?? ""
+                    Id          = DataStore.NextStudentId(),
+                    LastName    = txtLastName.Text.Trim(),
+                    FirstName   = txtFirstName.Text.Trim(),
+                    MiddleName  = txtMiddleName.Text.Trim(),
+                    BirthDate   = birthDate,                  
+                    Phone       = txtPhone.Text.Trim(),
+                    Email       = txtEmail.Text.Trim(),
+                    Address     = txtAddress.Text.Trim(),
+                    Status      = (StudentStatus)cmbStatus.SelectedIndex,
+                    SubGroup    = cmbSubGroup.SelectedItem?.ToString() ?? ""
                 };
-                // Note: SaveStudent will be called from FormStudents when added to group
             }
 
             this.DialogResult = DialogResult.OK;

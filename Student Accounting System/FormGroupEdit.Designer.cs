@@ -86,8 +86,8 @@ namespace Student_Accounting_System
             this.lblSubGroup.ForeColor = System.Drawing.Color.FromArgb(150, 150, 180);
             this.lblSubGroup.Location = new System.Drawing.Point(16, 122);
             this.lblSubGroup.Name = "lblSubGroup";
-            this.lblSubGroup.Size = new System.Drawing.Size(130, 15);
-            this.lblSubGroup.Text = "Подгруппа (напр. А):";
+            this.lblSubGroup.Size = new System.Drawing.Size(250, 15);
+            this.lblSubGroup.Text = "Подгруппы через запятую (напр. А, Б, В):";
             //
             // txtSubGroup
             //
