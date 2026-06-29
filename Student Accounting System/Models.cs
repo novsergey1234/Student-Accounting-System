@@ -31,7 +31,7 @@ namespace Student_Accounting_System
         public string Email { get; set; }
         public string Address { get; set; }
         public StudentStatus Status { get; set; }
-        public string SubGroup { get; set; }  // Подгруппа студента (А, Б, В и т.д.)
+        public string SubGroup { get; set; }
         public List<Subject> Subjects { get; set; } = new List<Subject>();
 
         public string FullName => $"{LastName} {FirstName} {MiddleName}".Trim();
@@ -64,7 +64,7 @@ namespace Student_Accounting_System
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<string> SubGroups { get; set; } = new List<string>();  // Список подгрупп (А, Б, В и т.д.)
+        public List<string> SubGroups { get; set; } = new List<string>();
         public List<Student> Students { get; set; } = new List<Student>();
 
         public string FullName => Name;
@@ -84,7 +84,6 @@ namespace Student_Accounting_System
 
         static DataStore()
         {
-            // Load data from database or seed if empty
             var loadedGroups = DatabaseService.LoadAllData();
             if (loadedGroups.Count == 0)
             {
@@ -96,7 +95,6 @@ namespace Student_Accounting_System
                 foreach (var g in loadedGroups)
                     Groups.Add(g);
                 
-                // Update ID counters
                 if (Groups.Count > 0)
                 {
                     _nextGroupId = Groups.Max(g => g.Id) + 1;
@@ -148,7 +146,6 @@ namespace Student_Accounting_System
             Groups.Add(g2);
             Groups.Add(g3);
 
-            // Save seed data to database
             foreach (var group in Groups)
             {
                 DatabaseService.SaveGroup(group);

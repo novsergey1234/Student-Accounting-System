@@ -28,11 +28,11 @@ namespace Student_Accounting_System
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelToolbar = new System.Windows.Forms.Panel();
@@ -76,7 +76,7 @@ namespace Student_Accounting_System
             // 
             // panelHeader
             // 
-            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(20)))), ((int)(((byte)(36)))));
+            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(18, 20, 36);
             this.panelHeader.Controls.Add(this.lblTitle);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
@@ -91,13 +91,13 @@ namespace Student_Accounting_System
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(12, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(446, 47);
+            this.lblTitle.Size = new System.Drawing.Size(280, 25);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Система учета студентов";
             // 
             // panelToolbar
             // 
-            this.panelToolbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
+            this.panelToolbar.BackColor = System.Drawing.Color.FromArgb(26, 28, 46);
             this.panelToolbar.Controls.Add(this.btnAddGroup);
             this.panelToolbar.Controls.Add(this.btnEditGroup);
             this.panelToolbar.Controls.Add(this.btnDeleteGroup);
@@ -114,17 +114,17 @@ namespace Student_Accounting_System
             // btnAddGroup
             // 
             this.btnAddGroup.AutoSize = true;
-            this.btnAddGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
+            this.btnAddGroup.BackColor = System.Drawing.Color.FromArgb(42, 46, 72);
             this.btnAddGroup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddGroup.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(64)))), ((int)(((byte)(96)))));
+            this.btnAddGroup.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(60, 64, 96);
             this.btnAddGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddGroup.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAddGroup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
+            this.btnAddGroup.ForeColor = System.Drawing.Color.FromArgb(180, 180, 210);
             this.btnAddGroup.Location = new System.Drawing.Point(12, 6);
             this.btnAddGroup.MinimumSize = new System.Drawing.Size(120, 28);
             this.btnAddGroup.Name = "btnAddGroup";
             this.btnAddGroup.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.btnAddGroup.Size = new System.Drawing.Size(249, 44);
+            this.btnAddGroup.Size = new System.Drawing.Size(140, 28);
             this.btnAddGroup.TabIndex = 0;
             this.btnAddGroup.Text = "+ Добавить группу";
             this.btnAddGroup.UseVisualStyleBackColor = false;
@@ -133,18 +133,18 @@ namespace Student_Accounting_System
             // btnEditGroup
             // 
             this.btnEditGroup.AutoSize = true;
-            this.btnEditGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
+            this.btnEditGroup.BackColor = System.Drawing.Color.FromArgb(42, 46, 72);
             this.btnEditGroup.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditGroup.Enabled = false;
-            this.btnEditGroup.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(64)))), ((int)(((byte)(96)))));
+            this.btnEditGroup.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(60, 64, 96);
             this.btnEditGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditGroup.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnEditGroup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
-            this.btnEditGroup.Location = new System.Drawing.Point(160, 6);
+            this.btnEditGroup.ForeColor = System.Drawing.Color.FromArgb(180, 180, 210);
+            this.btnEditGroup.Location = new System.Drawing.Point(157, 6);
             this.btnEditGroup.MinimumSize = new System.Drawing.Size(120, 28);
             this.btnEditGroup.Name = "btnEditGroup";
             this.btnEditGroup.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.btnEditGroup.Size = new System.Drawing.Size(231, 44);
+            this.btnEditGroup.Size = new System.Drawing.Size(120, 28);
             this.btnEditGroup.TabIndex = 1;
             this.btnEditGroup.Text = "✎ Редактировать";
             this.btnEditGroup.UseVisualStyleBackColor = false;
@@ -153,18 +153,18 @@ namespace Student_Accounting_System
             // btnDeleteGroup
             // 
             this.btnDeleteGroup.AutoSize = true;
-            this.btnDeleteGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
+            this.btnDeleteGroup.BackColor = System.Drawing.Color.FromArgb(42, 46, 72);
             this.btnDeleteGroup.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeleteGroup.Enabled = false;
-            this.btnDeleteGroup.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(64)))), ((int)(((byte)(96)))));
+            this.btnDeleteGroup.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(60, 64, 96);
             this.btnDeleteGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteGroup.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDeleteGroup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
+            this.btnDeleteGroup.ForeColor = System.Drawing.Color.FromArgb(180, 180, 210);
             this.btnDeleteGroup.Location = new System.Drawing.Point(288, 6);
             this.btnDeleteGroup.MinimumSize = new System.Drawing.Size(100, 28);
             this.btnDeleteGroup.Name = "btnDeleteGroup";
             this.btnDeleteGroup.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.btnDeleteGroup.Size = new System.Drawing.Size(166, 44);
+            this.btnDeleteGroup.Size = new System.Drawing.Size(100, 28);
             this.btnDeleteGroup.TabIndex = 2;
             this.btnDeleteGroup.Text = "🗑 Удалить";
             this.btnDeleteGroup.UseVisualStyleBackColor = false;
@@ -172,64 +172,64 @@ namespace Student_Accounting_System
             // 
             // btnExcel
             // 
-            this.btnExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExcel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.btnExcel.AutoSize = true;
-            this.btnExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
+            this.btnExcel.BackColor = System.Drawing.Color.FromArgb(42, 46, 72);
             this.btnExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(64)))), ((int)(((byte)(96)))));
+            this.btnExcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(60, 64, 96);
             this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcel.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
-            this.btnExcel.Location = new System.Drawing.Point(583, 6);
+            this.btnExcel.ForeColor = System.Drawing.Color.FromArgb(180, 180, 210);
+            this.btnExcel.Location = new System.Drawing.Point(620, 6);
             this.btnExcel.MinimumSize = new System.Drawing.Size(80, 28);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.btnExcel.Size = new System.Drawing.Size(117, 44);
+            this.btnExcel.Size = new System.Drawing.Size(80, 28);
             this.btnExcel.TabIndex = 3;
             this.btnExcel.Text = "⊞ Excel";
             this.btnExcel.UseVisualStyleBackColor = false;
             // 
             // btnPdf
             // 
-            this.btnPdf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPdf.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.btnPdf.AutoSize = true;
-            this.btnPdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
+            this.btnPdf.BackColor = System.Drawing.Color.FromArgb(42, 46, 72);
             this.btnPdf.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPdf.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(64)))), ((int)(((byte)(96)))));
+            this.btnPdf.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(60, 64, 96);
             this.btnPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPdf.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnPdf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
-            this.btnPdf.Location = new System.Drawing.Point(684, 6);
+            this.btnPdf.ForeColor = System.Drawing.Color.FromArgb(180, 180, 210);
+            this.btnPdf.Location = new System.Drawing.Point(710, 6);
             this.btnPdf.MinimumSize = new System.Drawing.Size(80, 28);
             this.btnPdf.Name = "btnPdf";
             this.btnPdf.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.btnPdf.Size = new System.Drawing.Size(106, 44);
+            this.btnPdf.Size = new System.Drawing.Size(80, 28);
             this.btnPdf.TabIndex = 4;
             this.btnPdf.Text = "⊟ PDF";
             this.btnPdf.UseVisualStyleBackColor = false;
             // 
             // btnWord
             // 
-            this.btnWord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnWord.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.btnWord.AutoSize = true;
-            this.btnWord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
+            this.btnWord.BackColor = System.Drawing.Color.FromArgb(42, 46, 72);
             this.btnWord.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWord.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(64)))), ((int)(((byte)(96)))));
+            this.btnWord.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(60, 64, 96);
             this.btnWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWord.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
-            this.btnWord.Location = new System.Drawing.Point(759, 6);
+            this.btnWord.ForeColor = System.Drawing.Color.FromArgb(180, 180, 210);
+            this.btnWord.Location = new System.Drawing.Point(800, 6);
             this.btnWord.MinimumSize = new System.Drawing.Size(80, 28);
             this.btnWord.Name = "btnWord";
             this.btnWord.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.btnWord.Size = new System.Drawing.Size(121, 44);
+            this.btnWord.Size = new System.Drawing.Size(80, 28);
             this.btnWord.TabIndex = 5;
             this.btnWord.Text = "⊡ Word";
             this.btnWord.UseVisualStyleBackColor = false;
             // 
             // panelSearch
             // 
-            this.panelSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
+            this.panelSearch.BackColor = System.Drawing.Color.FromArgb(26, 28, 46);
             this.panelSearch.Controls.Add(this.lblSearchIcon);
             this.panelSearch.Controls.Add(this.lblSearchTitle);
             this.panelSearch.Controls.Add(this.txtSearch);
@@ -244,10 +244,10 @@ namespace Student_Accounting_System
             // 
             this.lblSearchIcon.AutoSize = true;
             this.lblSearchIcon.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblSearchIcon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            this.lblSearchIcon.ForeColor = System.Drawing.Color.FromArgb(150, 150, 180);
             this.lblSearchIcon.Location = new System.Drawing.Point(12, 4);
             this.lblSearchIcon.Name = "lblSearchIcon";
-            this.lblSearchIcon.Size = new System.Drawing.Size(54, 37);
+            this.lblSearchIcon.Size = new System.Drawing.Size(20, 19);
             this.lblSearchIcon.TabIndex = 0;
             this.lblSearchIcon.Text = "🔍";
             // 
@@ -255,37 +255,36 @@ namespace Student_Accounting_System
             // 
             this.lblSearchTitle.AutoSize = true;
             this.lblSearchTitle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblSearchTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            this.lblSearchTitle.ForeColor = System.Drawing.Color.FromArgb(150, 150, 180);
             this.lblSearchTitle.Location = new System.Drawing.Point(36, 5);
             this.lblSearchTitle.Name = "lblSearchTitle";
-            this.lblSearchTitle.Size = new System.Drawing.Size(182, 32);
+            this.lblSearchTitle.Size = new System.Drawing.Size(90, 15);
             this.lblSearchTitle.TabIndex = 1;
             this.lblSearchTitle.Text = "Поиск группы";
             // 
             // txtSearch
             // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.txtSearch.BackColor = System.Drawing.Color.FromArgb(32, 34, 54);
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(220)))));
+            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(200, 200, 220);
             this.txtSearch.Location = new System.Drawing.Point(12, 24);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(760, 41);
+            this.txtSearch.Size = new System.Drawing.Size(760, 23);
             this.txtSearch.TabIndex = 2;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // btnSearch
             // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
+            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(42, 46, 72);
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(64)))), ((int)(((byte)(96)))));
+            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(60, 64, 96);
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
+            this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(180, 180, 210);
             this.btnSearch.Location = new System.Drawing.Point(780, 24);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(100, 23);
@@ -296,7 +295,7 @@ namespace Student_Accounting_System
             // 
             // panelContent
             // 
-            this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(40)))));
+            this.panelContent.BackColor = System.Drawing.Color.FromArgb(22, 24, 40);
             this.panelContent.Controls.Add(this.dataGridViewGroups);
             this.panelContent.Controls.Add(this.lblTotalGroupsValue);
             this.panelContent.Controls.Add(this.lblTotalGroupsLabel);
@@ -312,25 +311,23 @@ namespace Student_Accounting_System
             // 
             this.dataGridViewGroups.AllowUserToAddRows = false;
             this.dataGridViewGroups.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(52)))));
-            this.dataGridViewGroups.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewGroups.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(30, 32, 52);
+            this.dataGridViewGroups.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.dataGridViewGroups.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             this.dataGridViewGroups.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewGroups.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
+            this.dataGridViewGroups.BackgroundColor = System.Drawing.Color.FromArgb(26, 28, 46);
             this.dataGridViewGroups.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewGroups.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewGroups.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroups.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(20, 22, 40);
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(150, 150, 180);
+            dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroups.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewGroups.ColumnHeadersHeight = 36;
             this.dataGridViewGroups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewGroups.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -338,18 +335,18 @@ namespace Student_Accounting_System
             this.colSubGroup,
             this.colStudents,
             this.colAvgGrade});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(140)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewGroups.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(26, 28, 46);
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(50, 80, 140);
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewGroups.DefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridViewGroups.EnableHeadersVisualStyles = false;
             this.dataGridViewGroups.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dataGridViewGroups.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(68)))));
+            this.dataGridViewGroups.GridColor = System.Drawing.Color.FromArgb(40, 44, 68);
             this.dataGridViewGroups.Location = new System.Drawing.Point(12, 36);
             this.dataGridViewGroups.MultiSelect = false;
             this.dataGridViewGroups.Name = "dataGridViewGroups";
@@ -375,15 +372,15 @@ namespace Student_Accounting_System
             // colSubGroup
             // 
             this.colSubGroup.FillWeight = 25F;
-            this.colSubGroup.HeaderText = "Подгруппы";
+            this.colSubGroup.HeaderText = "Подгруппа";
             this.colSubGroup.MinimumWidth = 10;
             this.colSubGroup.Name = "colSubGroup";
             this.colSubGroup.ReadOnly = true;
             // 
             // colStudents
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colStudents.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colStudents.DefaultCellStyle = dataGridViewCellStyle18;
             this.colStudents.FillWeight = 25F;
             this.colStudents.HeaderText = "Студентов";
             this.colStudents.MinimumWidth = 10;
@@ -392,8 +389,8 @@ namespace Student_Accounting_System
             // 
             // colAvgGrade
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colAvgGrade.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colAvgGrade.DefaultCellStyle = dataGridViewCellStyle19;
             this.colAvgGrade.FillWeight = 25F;
             this.colAvgGrade.HeaderText = "Ср. балл";
             this.colAvgGrade.MinimumWidth = 10;
@@ -402,25 +399,25 @@ namespace Student_Accounting_System
             // 
             // lblTotalGroupsValue
             // 
-            this.lblTotalGroupsValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTotalGroupsValue.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.lblTotalGroupsValue.AutoSize = true;
             this.lblTotalGroupsValue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblTotalGroupsValue.ForeColor = System.Drawing.Color.White;
             this.lblTotalGroupsValue.Location = new System.Drawing.Point(910, 12);
             this.lblTotalGroupsValue.Name = "lblTotalGroupsValue";
-            this.lblTotalGroupsValue.Size = new System.Drawing.Size(28, 32);
+            this.lblTotalGroupsValue.Size = new System.Drawing.Size(14, 15);
             this.lblTotalGroupsValue.TabIndex = 1;
             this.lblTotalGroupsValue.Text = "0";
             // 
             // lblTotalGroupsLabel
             // 
-            this.lblTotalGroupsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTotalGroupsLabel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.lblTotalGroupsLabel.AutoSize = true;
             this.lblTotalGroupsLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblTotalGroupsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            this.lblTotalGroupsLabel.ForeColor = System.Drawing.Color.FromArgb(150, 150, 180);
             this.lblTotalGroupsLabel.Location = new System.Drawing.Point(800, 12);
             this.lblTotalGroupsLabel.Name = "lblTotalGroupsLabel";
-            this.lblTotalGroupsLabel.Size = new System.Drawing.Size(190, 32);
+            this.lblTotalGroupsLabel.Size = new System.Drawing.Size(110, 15);
             this.lblTotalGroupsLabel.TabIndex = 2;
             this.lblTotalGroupsLabel.Text = "👥 Всего групп:";
             // 
@@ -428,16 +425,16 @@ namespace Student_Accounting_System
             // 
             this.lblGroupsTitle.AutoSize = true;
             this.lblGroupsTitle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblGroupsTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(220)))));
+            this.lblGroupsTitle.ForeColor = System.Drawing.Color.FromArgb(200, 200, 220);
             this.lblGroupsTitle.Location = new System.Drawing.Point(12, 12);
             this.lblGroupsTitle.Name = "lblGroupsTitle";
-            this.lblGroupsTitle.Size = new System.Drawing.Size(241, 37);
+            this.lblGroupsTitle.Size = new System.Drawing.Size(120, 19);
             this.lblGroupsTitle.TabIndex = 3;
             this.lblGroupsTitle.Text = "Учебные группы";
             // 
             // panelFooter
             // 
-            this.panelFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(20)))), ((int)(((byte)(36)))));
+            this.panelFooter.BackColor = System.Drawing.Color.FromArgb(18, 20, 36);
             this.panelFooter.Controls.Add(this.lblFooterIcon);
             this.panelFooter.Controls.Add(this.lblFooterTitle);
             this.panelFooter.Controls.Add(this.lblTotalGroupsStat);
@@ -456,10 +453,10 @@ namespace Student_Accounting_System
             // 
             this.lblFooterIcon.AutoSize = true;
             this.lblFooterIcon.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lblFooterIcon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(140)))), ((int)(((byte)(200)))));
+            this.lblFooterIcon.ForeColor = System.Drawing.Color.FromArgb(100, 140, 200);
             this.lblFooterIcon.Location = new System.Drawing.Point(12, 14);
             this.lblFooterIcon.Name = "lblFooterIcon";
-            this.lblFooterIcon.Size = new System.Drawing.Size(64, 45);
+            this.lblFooterIcon.Size = new System.Drawing.Size(32, 21);
             this.lblFooterIcon.TabIndex = 0;
             this.lblFooterIcon.Text = "🎓";
             // 
@@ -467,10 +464,10 @@ namespace Student_Accounting_System
             // 
             this.lblFooterTitle.AutoSize = true;
             this.lblFooterTitle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblFooterTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            this.lblFooterTitle.ForeColor = System.Drawing.Color.FromArgb(150, 150, 180);
             this.lblFooterTitle.Location = new System.Drawing.Point(48, 18);
             this.lblFooterTitle.Name = "lblFooterTitle";
-            this.lblFooterTitle.Size = new System.Drawing.Size(248, 32);
+            this.lblFooterTitle.Size = new System.Drawing.Size(140, 15);
             this.lblFooterTitle.TabIndex = 1;
             this.lblFooterTitle.Text = "Сводная статистика";
             // 
@@ -478,10 +475,10 @@ namespace Student_Accounting_System
             // 
             this.lblTotalGroupsStat.AutoSize = true;
             this.lblTotalGroupsStat.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.lblTotalGroupsStat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            this.lblTotalGroupsStat.ForeColor = System.Drawing.Color.FromArgb(150, 150, 180);
             this.lblTotalGroupsStat.Location = new System.Drawing.Point(400, 8);
             this.lblTotalGroupsStat.Name = "lblTotalGroupsStat";
-            this.lblTotalGroupsStat.Size = new System.Drawing.Size(133, 30);
+            this.lblTotalGroupsStat.Size = new System.Drawing.Size(76, 13);
             this.lblTotalGroupsStat.TabIndex = 2;
             this.lblTotalGroupsStat.Text = "Всего групп";
             // 
@@ -492,7 +489,7 @@ namespace Student_Accounting_System
             this.lblTotalGroups.ForeColor = System.Drawing.Color.White;
             this.lblTotalGroups.Location = new System.Drawing.Point(400, 24);
             this.lblTotalGroups.Name = "lblTotalGroups";
-            this.lblTotalGroups.Size = new System.Drawing.Size(38, 45);
+            this.lblTotalGroups.Size = new System.Drawing.Size(18, 21);
             this.lblTotalGroups.TabIndex = 3;
             this.lblTotalGroups.Text = "0";
             // 
@@ -500,10 +497,10 @@ namespace Student_Accounting_System
             // 
             this.lblTotalStudentsStat.AutoSize = true;
             this.lblTotalStudentsStat.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.lblTotalStudentsStat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            this.lblTotalStudentsStat.ForeColor = System.Drawing.Color.FromArgb(150, 150, 180);
             this.lblTotalStudentsStat.Location = new System.Drawing.Point(520, 8);
             this.lblTotalStudentsStat.Name = "lblTotalStudentsStat";
-            this.lblTotalStudentsStat.Size = new System.Drawing.Size(176, 30);
+            this.lblTotalStudentsStat.Size = new System.Drawing.Size(100, 13);
             this.lblTotalStudentsStat.TabIndex = 4;
             this.lblTotalStudentsStat.Text = "Всего студентов";
             // 
@@ -514,7 +511,7 @@ namespace Student_Accounting_System
             this.lblTotalStudents.ForeColor = System.Drawing.Color.White;
             this.lblTotalStudents.Location = new System.Drawing.Point(520, 24);
             this.lblTotalStudents.Name = "lblTotalStudents";
-            this.lblTotalStudents.Size = new System.Drawing.Size(38, 45);
+            this.lblTotalStudents.Size = new System.Drawing.Size(18, 21);
             this.lblTotalStudents.TabIndex = 5;
             this.lblTotalStudents.Text = "0";
             // 
@@ -522,10 +519,10 @@ namespace Student_Accounting_System
             // 
             this.lblAvgGradeStat.AutoSize = true;
             this.lblAvgGradeStat.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.lblAvgGradeStat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            this.lblAvgGradeStat.ForeColor = System.Drawing.Color.FromArgb(150, 150, 180);
             this.lblAvgGradeStat.Location = new System.Drawing.Point(650, 8);
             this.lblAvgGradeStat.Name = "lblAvgGradeStat";
-            this.lblAvgGradeStat.Size = new System.Drawing.Size(157, 30);
+            this.lblAvgGradeStat.Size = new System.Drawing.Size(79, 13);
             this.lblAvgGradeStat.TabIndex = 6;
             this.lblAvgGradeStat.Text = "Средний балл";
             // 
@@ -536,7 +533,7 @@ namespace Student_Accounting_System
             this.lblAvgGrade.ForeColor = System.Drawing.Color.White;
             this.lblAvgGrade.Location = new System.Drawing.Point(650, 24);
             this.lblAvgGrade.Name = "lblAvgGrade";
-            this.lblAvgGrade.Size = new System.Drawing.Size(52, 45);
+            this.lblAvgGrade.Size = new System.Drawing.Size(25, 21);
             this.lblAvgGrade.TabIndex = 7;
             this.lblAvgGrade.Text = "—";
             // 
@@ -550,9 +547,9 @@ namespace Student_Accounting_System
             // 
             // FormGroups
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 35F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(24)))), ((int)(((byte)(40)))));
+            this.BackColor = System.Drawing.Color.FromArgb(22, 24, 40);
             this.ClientSize = new System.Drawing.Size(960, 650);
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.panelSearch);

@@ -243,20 +243,17 @@ namespace Student_Accounting_System
                     conn.Open();
                     EnableForeignKeys(conn);
 
-                    // Сначала удаляем все предметы студентов группы
                     using (var cmd = new SQLiteCommand(
                         "DELETE FROM Subjects WHERE StudentId IN (SELECT Id FROM Students WHERE GroupId = @id)", conn))
                     {
                         cmd.Parameters.AddWithValue("@id", groupId);
                         cmd.ExecuteNonQuery();
                     }
-                    // Затем удаляем студентов группы
                     using (var cmd = new SQLiteCommand("DELETE FROM Students WHERE GroupId = @id", conn))
                     {
                         cmd.Parameters.AddWithValue("@id", groupId);
                         cmd.ExecuteNonQuery();
                     }
-                    // Наконец удаляем саму группу
                     using (var cmd = new SQLiteCommand("DELETE FROM Groups WHERE Id = @id", conn))
                     {
                         cmd.Parameters.AddWithValue("@id", groupId);
@@ -300,7 +297,6 @@ namespace Student_Accounting_System
                         student.Id = Convert.ToInt32(cmd.ExecuteScalar());
                     }
 
-                    // Save subjects
                     foreach (var subject in student.Subjects)
                     {
                         SaveSubject(subject, student.Id, conn);
