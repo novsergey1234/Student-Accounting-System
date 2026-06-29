@@ -32,7 +32,8 @@ namespace Student_Accounting_System
                     s.LastName,
                     s.FirstName,
                     s.MiddleName,
-                    avg > 0 ? $"● {avg:F2}" : "—",
+                    s.SubGroup ?? "",
+                    avg > 0 ? avg.ToString("F2") : "—",
                     s.StatusLabel);
             }
             UpdateFooter(students);
@@ -132,12 +133,6 @@ namespace Student_Accounting_System
             if (e.RowIndex >= 0) OpenStudentCard(e.RowIndex);
         }
 
-        private void dataGridViewStudents_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == dataGridViewStudents.Columns["colCard"].Index && e.RowIndex >= 0)
-                OpenStudentCard(e.RowIndex);
-        }
-
         private void OpenStudentCard(int rowIndex)
         {
             if (rowIndex < 0 || rowIndex >= _filtered.Count) return;
@@ -149,10 +144,11 @@ namespace Student_Accounting_System
 
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
-            var dlg = new FormStudentEdit(null);
+            var dlg = new FormStudentEdit(null, _group);
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 _group.Students.Add(dlg.ResultStudent);
+                DatabaseService.SaveStudent(dlg.ResultStudent, _group.Id);
                 LoadStudents(_group.Students);
             }
         }
@@ -163,7 +159,7 @@ namespace Student_Accounting_System
             int idx = dataGridViewStudents.SelectedRows[0].Index;
             if (idx < 0 || idx >= _filtered.Count) return;
             var student = _filtered[idx];
-            var dlg = new FormStudentEdit(student);
+            var dlg = new FormStudentEdit(student, _group);
             if (dlg.ShowDialog() == DialogResult.OK)
                 LoadStudents(_group.Students);
         }
@@ -181,6 +177,7 @@ namespace Student_Accounting_System
                 MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
+                DatabaseService.DeleteStudent(student.Id);
                 _group.Students.Remove(student);
                 LoadStudents(_group.Students);
             }

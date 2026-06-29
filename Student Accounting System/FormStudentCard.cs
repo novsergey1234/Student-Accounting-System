@@ -15,6 +15,14 @@ namespace Student_Accounting_System
             InitializeComponent();
             _student = student;
             _group = group;
+            
+            // Populate subgroup dropdown
+            if (group != null && group.SubGroups.Count > 0)
+            {
+                foreach (var sg in group.SubGroups)
+                    cmbSubGroup.Items.Add(sg);
+            }
+            
             LoadStudentData();
             LoadGrades();
         }
@@ -36,6 +44,12 @@ namespace Student_Accounting_System
             txtEmail.Text = _student.Email;
             txtAddress.Text = _student.Address;
             cmbStatus.SelectedIndex = (int)_student.Status;
+            
+            // Set subgroup if exists
+            if (!string.IsNullOrEmpty(_student.SubGroup) && cmbSubGroup.Items.Contains(_student.SubGroup))
+                cmbSubGroup.SelectedItem = _student.SubGroup;
+            else if (cmbSubGroup.Items.Count > 0)
+                cmbSubGroup.SelectedIndex = 0;
         }
 
         private void LoadGrades()
@@ -84,6 +98,7 @@ namespace Student_Accounting_System
             if (TryParseGradeCell(row.Cells["colSem2"], out int s2)) sub.Semester2Grade = s2;
             if (TryParseGradeCell(row.Cells["colFinal"], out int fin)) sub.FinalGrade = fin;
 
+            DatabaseService.UpdateSubject(sub);
             UpdateGradesAvg();
         }
 
@@ -113,9 +128,11 @@ namespace Student_Accounting_System
             _student.Email = txtEmail.Text.Trim();
             _student.Address = txtAddress.Text.Trim();
             _student.Status = (StudentStatus)cmbStatus.SelectedIndex;
+            _student.SubGroup = cmbSubGroup.SelectedItem?.ToString() ?? "";
 
             lblStudentName.Text = _student.FullName;
 
+            DatabaseService.UpdateStudent(_student);
             MessageBox.Show("Данные сохранены.", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -130,14 +147,16 @@ namespace Student_Accounting_System
                 "Введите название предмета:", "Добавить предмет", "");
             if (string.IsNullOrWhiteSpace(name)) return;
 
-            _student.Subjects.Add(new Subject
+            var newSubject = new Subject
             {
                 Id = DataStore.NextSubjectId(),
                 Name = name.Trim(),
                 Semester1Grade = 0,
                 Semester2Grade = 0,
                 FinalGrade = 0
-            });
+            };
+            _student.Subjects.Add(newSubject);
+            DatabaseService.SaveSubject(newSubject, _student.Id);
             LoadGrades();
         }
 
@@ -151,6 +170,7 @@ namespace Student_Accounting_System
             if (MessageBox.Show($"Удалить предмет «{sub.Name}»?", "Подтверждение",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+                DatabaseService.DeleteSubject(sub.Id);
                 _student.Subjects.RemoveAt(idx);
                 LoadGrades();
             }

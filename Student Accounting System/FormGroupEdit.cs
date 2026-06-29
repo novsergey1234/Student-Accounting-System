@@ -17,7 +17,7 @@ namespace Student_Accounting_System
             {
                 this.Text = "Редактировать группу";
                 txtName.Text = existing.Name;
-                txtSubGroup.Text = existing.SubGroup;
+                txtSubGroup.Text = string.Join(", ", existing.SubGroups);
             }
             else
             {
@@ -33,11 +33,27 @@ namespace Student_Accounting_System
                 return;
             }
 
+            // Parse subgroups from comma-separated string
+            var subGroups = new System.Collections.Generic.List<string>();
+            foreach (var sg in txtSubGroup.Text.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                var trimmed = sg.Trim();
+                if (!string.IsNullOrEmpty(trimmed))
+                    subGroups.Add(trimmed);
+            }
+
+            if (subGroups.Count == 0)
+            {
+                MessageBox.Show("Укажите хотя бы одну подгруппу (например: А, Б).", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (_existing != null)
             {
                 _existing.Name = txtName.Text.Trim();
-                _existing.SubGroup = txtSubGroup.Text.Trim();
+                _existing.SubGroups = subGroups;
                 ResultGroup = _existing;
+                DatabaseService.UpdateGroup(_existing);
             }
             else
             {
@@ -45,8 +61,9 @@ namespace Student_Accounting_System
                 {
                     Id = DataStore.NextGroupId(),
                     Name = txtName.Text.Trim(),
-                    SubGroup = txtSubGroup.Text.Trim()
+                    SubGroups = subGroups
                 };
+                // Note: SaveGroup will be called from FormGroups when added to list
             }
 
             this.DialogResult = DialogResult.OK;

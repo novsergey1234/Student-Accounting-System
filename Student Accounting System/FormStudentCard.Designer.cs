@@ -53,6 +53,8 @@ namespace Student_Accounting_System
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblStatusField = new System.Windows.Forms.Label();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.lblSubGroupField = new System.Windows.Forms.Label();
+            this.cmbSubGroup = new System.Windows.Forms.ComboBox();
             this.panelPersonalButtons = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -136,6 +138,7 @@ namespace Student_Accounting_System
             // tabControl
             //
             this.tabControl.Appearance = System.Windows.Forms.TabAppearance.Normal;
+            this.tabControl.BackColor = System.Drawing.Color.FromArgb(22, 24, 40);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl.Font = new System.Drawing.Font("Segoe UI", 9.5F);
@@ -174,6 +177,8 @@ namespace Student_Accounting_System
             this.panelPersonalForm.Controls.Add(this.txtAddress);
             this.panelPersonalForm.Controls.Add(this.lblStatusField);
             this.panelPersonalForm.Controls.Add(this.cmbStatus);
+            this.panelPersonalForm.Controls.Add(this.lblSubGroupField);
+            this.panelPersonalForm.Controls.Add(this.cmbSubGroup);
             this.panelPersonalForm.Controls.Add(this.panelPersonalButtons);
             this.panelPersonalForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPersonalForm.Name = "panelPersonalForm";
@@ -314,6 +319,7 @@ namespace Student_Accounting_System
             //
             // txtAddress
             //
+            this.txtAddress.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             this.txtAddress.BackColor = System.Drawing.Color.FromArgb(32, 34, 54);
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -343,6 +349,26 @@ namespace Student_Accounting_System
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.SelectedIndex = 0;
             this.cmbStatus.Size = new System.Drawing.Size(360, 28);
+            //
+            // lblSubGroupField
+            //
+            this.lblSubGroupField.AutoSize = true;
+            this.lblSubGroupField.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblSubGroupField.ForeColor = System.Drawing.Color.FromArgb(150, 150, 180);
+            this.lblSubGroupField.Location = new System.Drawing.Point(400, 302);
+            this.lblSubGroupField.Name = "lblSubGroupField";
+            this.lblSubGroupField.Text = "Подгруппа:";
+            //
+            // cmbSubGroup
+            //
+            this.cmbSubGroup.BackColor = System.Drawing.Color.FromArgb(32, 34, 54);
+            this.cmbSubGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSubGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbSubGroup.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbSubGroup.ForeColor = System.Drawing.Color.FromArgb(200, 200, 220);
+            this.cmbSubGroup.Location = new System.Drawing.Point(400, 320);
+            this.cmbSubGroup.Name = "cmbSubGroup";
+            this.cmbSubGroup.Size = new System.Drawing.Size(200, 28);
             //
             // panelPersonalButtons
             //
@@ -392,6 +418,7 @@ namespace Student_Accounting_System
             //
             // btnExcelPersonal
             //
+            this.btnExcelPersonal.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.btnExcelPersonal.AutoSize = true;
             this.btnExcelPersonal.BackColor = System.Drawing.Color.FromArgb(42, 46, 72);
             this.btnExcelPersonal.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -404,11 +431,13 @@ namespace Student_Accounting_System
             this.btnExcelPersonal.MinimumSize = new System.Drawing.Size(80, 30);
             this.btnExcelPersonal.Name = "btnExcelPersonal";
             this.btnExcelPersonal.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.btnExcelPersonal.Size = new System.Drawing.Size(80, 30);
             this.btnExcelPersonal.Text = "⊞ Excel";
             this.btnExcelPersonal.UseVisualStyleBackColor = false;
             //
             // btnPdfPersonal
             //
+            this.btnPdfPersonal.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.btnPdfPersonal.AutoSize = true;
             this.btnPdfPersonal.BackColor = System.Drawing.Color.FromArgb(42, 46, 72);
             this.btnPdfPersonal.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -421,11 +450,13 @@ namespace Student_Accounting_System
             this.btnPdfPersonal.MinimumSize = new System.Drawing.Size(80, 30);
             this.btnPdfPersonal.Name = "btnPdfPersonal";
             this.btnPdfPersonal.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.btnPdfPersonal.Size = new System.Drawing.Size(80, 30);
             this.btnPdfPersonal.Text = "⊟ PDF";
             this.btnPdfPersonal.UseVisualStyleBackColor = false;
             //
             // btnWordPersonal
             //
+            this.btnWordPersonal.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.btnWordPersonal.AutoSize = true;
             this.btnWordPersonal.BackColor = System.Drawing.Color.FromArgb(42, 46, 72);
             this.btnWordPersonal.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -438,6 +469,7 @@ namespace Student_Accounting_System
             this.btnWordPersonal.MinimumSize = new System.Drawing.Size(80, 30);
             this.btnWordPersonal.Name = "btnWordPersonal";
             this.btnWordPersonal.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.btnWordPersonal.Size = new System.Drawing.Size(80, 30);
             this.btnWordPersonal.Text = "⊡ Word";
             this.btnWordPersonal.UseVisualStyleBackColor = false;
             //
@@ -476,8 +508,9 @@ namespace Student_Accounting_System
             this.lblGradesAvg.AutoSize = true;
             this.lblGradesAvg.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblGradesAvg.ForeColor = System.Drawing.Color.FromArgb(76, 175, 80);
-            this.lblGradesAvg.Location = new System.Drawing.Point(570, 10);
+            this.lblGradesAvg.Location = new System.Drawing.Point(620, 10);
             this.lblGradesAvg.Name = "lblGradesAvg";
+            this.lblGradesAvg.Size = new System.Drawing.Size(130, 15);
             this.lblGradesAvg.Text = "Средний балл: —";
             //
             // dataGridViewGrades
@@ -589,6 +622,7 @@ namespace Student_Accounting_System
             //
             // btnExcelGrades
             //
+            this.btnExcelGrades.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.btnExcelGrades.AutoSize = true;
             this.btnExcelGrades.BackColor = System.Drawing.Color.FromArgb(42, 46, 72);
             this.btnExcelGrades.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -601,11 +635,13 @@ namespace Student_Accounting_System
             this.btnExcelGrades.MinimumSize = new System.Drawing.Size(80, 30);
             this.btnExcelGrades.Name = "btnExcelGrades";
             this.btnExcelGrades.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.btnExcelGrades.Size = new System.Drawing.Size(80, 30);
             this.btnExcelGrades.Text = "⊞ Excel";
             this.btnExcelGrades.UseVisualStyleBackColor = false;
             //
             // btnPdfGrades
             //
+            this.btnPdfGrades.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.btnPdfGrades.AutoSize = true;
             this.btnPdfGrades.BackColor = System.Drawing.Color.FromArgb(42, 46, 72);
             this.btnPdfGrades.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -618,11 +654,13 @@ namespace Student_Accounting_System
             this.btnPdfGrades.MinimumSize = new System.Drawing.Size(80, 30);
             this.btnPdfGrades.Name = "btnPdfGrades";
             this.btnPdfGrades.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.btnPdfGrades.Size = new System.Drawing.Size(80, 30);
             this.btnPdfGrades.Text = "⊟ PDF";
             this.btnPdfGrades.UseVisualStyleBackColor = false;
             //
             // btnWordGrades
             //
+            this.btnWordGrades.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.btnWordGrades.AutoSize = true;
             this.btnWordGrades.BackColor = System.Drawing.Color.FromArgb(42, 46, 72);
             this.btnWordGrades.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -635,6 +673,7 @@ namespace Student_Accounting_System
             this.btnWordGrades.MinimumSize = new System.Drawing.Size(80, 30);
             this.btnWordGrades.Name = "btnWordGrades";
             this.btnWordGrades.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.btnWordGrades.Size = new System.Drawing.Size(80, 30);
             this.btnWordGrades.Text = "⊡ Word";
             this.btnWordGrades.UseVisualStyleBackColor = false;
             //
@@ -692,6 +731,8 @@ namespace Student_Accounting_System
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label lblStatusField;
         private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.Label lblSubGroupField;
+        private System.Windows.Forms.ComboBox cmbSubGroup;
         private System.Windows.Forms.Panel panelPersonalButtons;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;

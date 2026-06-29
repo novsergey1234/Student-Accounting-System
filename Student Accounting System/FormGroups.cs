@@ -25,7 +25,8 @@ namespace Student_Accounting_System
             {
                 int count = g.Students.Count;
                 double avg = count > 0 ? g.Students.Average(s => s.AverageGrade) : 0;
-                dataGridViewGroups.Rows.Add(g.Name, g.SubGroup, count, avg > 0 ? avg.ToString("F2") : "—");
+                string subGroupsStr = string.Join(", ", g.SubGroups);
+                dataGridViewGroups.Rows.Add(g.Name, subGroupsStr, count, avg > 0 ? avg.ToString("F2") : "—");
             }
             lblTotalGroups.Text = groups.Count.ToString();
             int totalStudents = groups.Sum(g => g.Students.Count);
@@ -57,7 +58,7 @@ namespace Student_Accounting_System
                 return;
             }
             var filtered = _allGroups
-                .Where(g => g.Name.ToLower().Contains(query) || g.SubGroup.ToLower().Contains(query))
+                .Where(g => g.Name.ToLower().Contains(query))
                 .ToList();
             LoadGroups(filtered);
         }
@@ -89,7 +90,7 @@ namespace Student_Accounting_System
             string query = txtSearch.Text.Trim().ToLower();
             List<Group> current = string.IsNullOrEmpty(query)
                 ? _allGroups
-                : _allGroups.Where(g => g.Name.ToLower().Contains(query) || g.SubGroup.ToLower().Contains(query)).ToList();
+                : _allGroups.Where(g => g.Name.ToLower().Contains(query)).ToList();
             if (idx < 0 || idx >= current.Count) return;
             var group = current[idx];
             var form = new FormStudents(group);
@@ -102,6 +103,7 @@ namespace Student_Accounting_System
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 _allGroups.Add(dlg.ResultGroup);
+                DatabaseService.SaveGroup(dlg.ResultGroup);
                 LoadGroups(_allGroups);
                 UpdateStats();
             }
@@ -128,22 +130,17 @@ namespace Student_Accounting_System
             if (idx < 0 || idx >= _allGroups.Count) return;
             var group = _allGroups[idx];
             var result = MessageBox.Show(
-                $"Удалить группу {group.Name}-{group.SubGroup}?",
+                $"Удалить группу {group.Name}?",
                 "Подтверждение",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
+                DatabaseService.DeleteGroup(group.Id);
                 _allGroups.RemoveAt(idx);
                 LoadGroups(_allGroups);
                 UpdateStats();
             }
-        }
-
-        private void dataGridViewGroups_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex == dataGridViewGroups.Columns["colOpen"].Index)
-                OpenSelectedGroup();
         }
 
         private void dataGridViewGroups_SelectionChanged(object sender, EventArgs e)

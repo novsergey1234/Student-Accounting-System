@@ -8,11 +8,21 @@ namespace Student_Accounting_System
     {
         public Student ResultStudent { get; private set; }
         private readonly Student _existing;
+        private readonly Group _group;
 
-        public FormStudentEdit(Student existing)
+        public FormStudentEdit(Student existing, Group group)
         {
             InitializeComponent();
             _existing = existing;
+            _group = group;
+
+            // Populate subgroup dropdown
+            if (group != null && group.SubGroups.Count > 0)
+            {
+                foreach (var sg in group.SubGroups)
+                    cmbSubGroup.Items.Add(sg);
+                cmbSubGroup.SelectedIndex = 0;
+            }
 
             if (existing != null)
             {
@@ -27,6 +37,10 @@ namespace Student_Accounting_System
                 txtEmail.Text = existing.Email;
                 txtAddress.Text = existing.Address;
                 cmbStatus.SelectedIndex = (int)existing.Status;
+                
+                // Set subgroup if exists
+                if (!string.IsNullOrEmpty(existing.SubGroup) && cmbSubGroup.Items.Contains(existing.SubGroup))
+                    cmbSubGroup.SelectedItem = existing.SubGroup;
             }
             else
             {
@@ -57,7 +71,9 @@ namespace Student_Accounting_System
                 _existing.Email = txtEmail.Text.Trim();
                 _existing.Address = txtAddress.Text.Trim();
                 _existing.Status = (StudentStatus)cmbStatus.SelectedIndex;
+                _existing.SubGroup = cmbSubGroup.SelectedItem?.ToString() ?? "";
                 ResultStudent = _existing;
+                DatabaseService.UpdateStudent(_existing);
             }
             else
             {
@@ -71,8 +87,10 @@ namespace Student_Accounting_System
                     Phone = txtPhone.Text.Trim(),
                     Email = txtEmail.Text.Trim(),
                     Address = txtAddress.Text.Trim(),
-                    Status = (StudentStatus)cmbStatus.SelectedIndex
+                    Status = (StudentStatus)cmbStatus.SelectedIndex,
+                    SubGroup = cmbSubGroup.SelectedItem?.ToString() ?? ""
                 };
+                // Note: SaveStudent will be called from FormStudents when added to group
             }
 
             this.DialogResult = DialogResult.OK;
