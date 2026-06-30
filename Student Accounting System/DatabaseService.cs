@@ -45,6 +45,23 @@ namespace Student_Accounting_System
                 EnableForeignKeys(conn);
 
                 using (var cmd = new SQLiteCommand(@"
+                    CREATE TABLE IF NOT EXISTS Attendance (
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        StudentId INTEGER NOT NULL,
+                        Date TEXT NOT NULL,
+                        IsAbsent1 INTEGER DEFAULT 0,
+                        IsAbsent2 INTEGER DEFAULT 0,
+                        IsAbsent3 INTEGER DEFAULT 0,
+                        IsAbsent4 INTEGER DEFAULT 0,
+                        IsAbsent5 INTEGER DEFAULT 0,
+                        FOREIGN KEY (StudentId) REFERENCES Students(Id) ON DELETE CASCADE,
+                        UNIQUE(StudentId, Date)
+                    )", conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                using (var cmd = new SQLiteCommand(@"
                     CREATE TABLE IF NOT EXISTS GroupSubjects (
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         GroupId INTEGER NOT NULL,
@@ -152,6 +169,19 @@ namespace Student_Accounting_System
                             GroupId INTEGER NOT NULL,
                             Name TEXT NOT NULL,
                             FOREIGN KEY (GroupId) REFERENCES Groups(Id) ON DELETE CASCADE
+                        );
+
+                        CREATE TABLE IF NOT EXISTS Attendance (
+                            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            StudentId INTEGER NOT NULL,
+                            Date TEXT NOT NULL,
+                            IsAbsent1 INTEGER DEFAULT 0,
+                            IsAbsent2 INTEGER DEFAULT 0,
+                            IsAbsent3 INTEGER DEFAULT 0,
+                            IsAbsent4 INTEGER DEFAULT 0,
+                            IsAbsent5 INTEGER DEFAULT 0,
+                            FOREIGN KEY (StudentId) REFERENCES Students(Id) ON DELETE CASCADE,
+                            UNIQUE(StudentId, Date)
                         );
 
                         CREATE TABLE IF NOT EXISTS Subjects (
@@ -760,6 +790,133 @@ namespace Student_Accounting_System
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
+        }
+
+        public static void SaveAttendance(AttendanceRecord record)
+        {
+            try
+            {
+                using (var conn = new SQLiteConnection(ConnectionString))
+                {
+                    conn.Open();
+                    EnableForeignKeys(conn);
+
+                    using (var cmd = new SQLiteCommand(@"
+                        INSERT OR REPLACE INTO Attendance (Id, StudentId, Date, IsAbsent1, IsAbsent2, IsAbsent3, IsAbsent4, IsAbsent5)
+                        VALUES (
+                            (SELECT Id FROM Attendance WHERE StudentId = @studentId AND Date = @date),
+                            @studentId, @date, @a1, @a2, @a3, @a4, @a5
+                        ); SELECT last_insert_rowid();", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@studentId", record.StudentId);
+                        cmd.Parameters.AddWithValue("@date", record.Date.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@a1", record.IsAbsent1 ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@a2", record.IsAbsent2 ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@a3", record.IsAbsent3 ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@a4", record.IsAbsent4 ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@a5", record.IsAbsent5 ? 1 : 0);
+                        record.Id = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка сохранения посещаемости: {ex.Message}", "Ошибка БД",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public static List<AttendanceRecord> GetAttendanceForDate(int groupId, DateTime date)
+        {
+            var records = new List<AttendanceRecord>();
+            try
+            {
+                using (var conn = new SQLiteConnection(ConnectionString))
+                {
+                    conn.Open();
+                    EnableForeignKeys(conn);
+
+                    var dateStr = date.ToString("yyyy-MM-dd");
+                    using (var cmd = new SQLiteCommand(@"
+                        SELECT a.Id, a.StudentId, a.Date, a.IsAbsent1, a.IsAbsent2, a.IsAbsent3, a.IsAbsent4, a.IsAbsent5
+                        FROM Attendance a
+                        INNER JOIN Students s ON s.Id = a.StudentId
+                        WHERE s.GroupId = @groupId AND a.Date = @date", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@groupId", groupId);
+                        cmd.Parameters.AddWithValue("@date", dateStr);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                records.Add(new AttendanceRecord
+                                {
+                                    Id = reader.GetInt32(0),
+                                    StudentId = reader.GetInt32(1),
+                                    Date = DateTime.Parse(reader.GetString(2)),
+                                    IsAbsent1 = reader.GetInt32(3) == 1,
+                                    IsAbsent2 = reader.GetInt32(4) == 1,
+                                    IsAbsent3 = reader.GetInt32(5) == 1,
+                                    IsAbsent4 = reader.GetInt32(6) == 1,
+                                    IsAbsent5 = reader.GetInt32(7) == 1
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки посещаемости: {ex.Message}", "Ошибка БД",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return records;
+        }
+
+        public static List<AttendanceRecord> GetAllAttendanceForGroup(int groupId)
+        {
+            var records = new List<AttendanceRecord>();
+            try
+            {
+                using (var conn = new SQLiteConnection(ConnectionString))
+                {
+                    conn.Open();
+                    EnableForeignKeys(conn);
+
+                    using (var cmd = new SQLiteCommand(@"
+                        SELECT a.Id, a.StudentId, a.Date, a.IsAbsent1, a.IsAbsent2, a.IsAbsent3, a.IsAbsent4, a.IsAbsent5
+                        FROM Attendance a
+                        INNER JOIN Students s ON s.Id = a.StudentId
+                        WHERE s.GroupId = @groupId
+                        ORDER BY a.Date", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@groupId", groupId);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                records.Add(new AttendanceRecord
+                                {
+                                    Id = reader.GetInt32(0),
+                                    StudentId = reader.GetInt32(1),
+                                    Date = DateTime.Parse(reader.GetString(2)),
+                                    IsAbsent1 = reader.GetInt32(3) == 1,
+                                    IsAbsent2 = reader.GetInt32(4) == 1,
+                                    IsAbsent3 = reader.GetInt32(5) == 1,
+                                    IsAbsent4 = reader.GetInt32(6) == 1,
+                                    IsAbsent5 = reader.GetInt32(7) == 1
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки посещаемости: {ex.Message}", "Ошибка БД",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return records;
         }
     }
 }

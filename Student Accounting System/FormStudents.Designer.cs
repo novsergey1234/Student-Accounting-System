@@ -49,9 +49,9 @@ namespace Student_Accounting_System
             this.btnDeleteStudent = new System.Windows.Forms.Button();
             this.btnGroupSubjects = new System.Windows.Forms.Button();
             this.btnGradeSheet = new System.Windows.Forms.Button();
+            this.btnAttendance = new System.Windows.Forms.Button();
             this.btnExcel = new System.Windows.Forms.Button();
             this.btnPdf = new System.Windows.Forms.Button();
-            this.btnWord = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
             this.dataGridViewStudents = new System.Windows.Forms.DataGridView();
             this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -239,9 +239,9 @@ namespace Student_Accounting_System
             this.panelToolbar.Controls.Add(this.btnDeleteStudent);
             this.panelToolbar.Controls.Add(this.btnGroupSubjects);
             this.panelToolbar.Controls.Add(this.btnGradeSheet);
+            this.panelToolbar.Controls.Add(this.btnAttendance);
             this.panelToolbar.Controls.Add(this.btnExcel);
             this.panelToolbar.Controls.Add(this.btnPdf);
-            this.panelToolbar.Controls.Add(this.btnWord);
             this.panelToolbar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelToolbar.Location = new System.Drawing.Point(0, 110);
             this.panelToolbar.Name = "panelToolbar";
@@ -317,7 +317,7 @@ namespace Student_Accounting_System
             this.btnGroupSubjects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGroupSubjects.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnGroupSubjects.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
-            this.btnGroupSubjects.Location = new System.Drawing.Point(390, 8);
+            this.btnGroupSubjects.Location = new System.Drawing.Point(372, 8);
             this.btnGroupSubjects.MinimumSize = new System.Drawing.Size(120, 28);
             this.btnGroupSubjects.Name = "btnGroupSubjects";
             this.btnGroupSubjects.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
@@ -336,7 +336,7 @@ namespace Student_Accounting_System
             this.btnGradeSheet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGradeSheet.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnGradeSheet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
-            this.btnGradeSheet.Location = new System.Drawing.Point(543, 8);
+            this.btnGradeSheet.Location = new System.Drawing.Point(524, 8);
             this.btnGradeSheet.MinimumSize = new System.Drawing.Size(120, 28);
             this.btnGradeSheet.Name = "btnGradeSheet";
             this.btnGradeSheet.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
@@ -345,6 +345,25 @@ namespace Student_Accounting_System
             this.btnGradeSheet.Text = "📊 Ведомость";
             this.btnGradeSheet.UseVisualStyleBackColor = false;
             this.btnGradeSheet.Click += new System.EventHandler(this.btnGradeSheet_Click);
+            // 
+            // btnAttendance
+            // 
+            this.btnAttendance.AutoSize = true;
+            this.btnAttendance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
+            this.btnAttendance.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAttendance.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(64)))), ((int)(((byte)(96)))));
+            this.btnAttendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAttendance.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAttendance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
+            this.btnAttendance.Location = new System.Drawing.Point(649, 8);
+            this.btnAttendance.MinimumSize = new System.Drawing.Size(120, 28);
+            this.btnAttendance.Name = "btnAttendance";
+            this.btnAttendance.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.btnAttendance.Size = new System.Drawing.Size(130, 28);
+            this.btnAttendance.TabIndex = 8;
+            this.btnAttendance.Text = "📋 Посещаемость";
+            this.btnAttendance.UseVisualStyleBackColor = false;
+            this.btnAttendance.Click += new System.EventHandler(this.btnAttendance_Click);
             // 
             // btnExcel
             // 
@@ -356,7 +375,7 @@ namespace Student_Accounting_System
             this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
-            this.btnExcel.Location = new System.Drawing.Point(697, 8);
+            this.btnExcel.Location = new System.Drawing.Point(792, 8);
             this.btnExcel.MinimumSize = new System.Drawing.Size(80, 28);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
@@ -375,7 +394,7 @@ namespace Student_Accounting_System
             this.btnPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPdf.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnPdf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
-            this.btnPdf.Location = new System.Drawing.Point(783, 8);
+            this.btnPdf.Location = new System.Drawing.Point(876, 8);
             this.btnPdf.MinimumSize = new System.Drawing.Size(80, 28);
             this.btnPdf.Name = "btnPdf";
             this.btnPdf.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
@@ -383,25 +402,6 @@ namespace Student_Accounting_System
             this.btnPdf.TabIndex = 4;
             this.btnPdf.Text = "⊟ PDF";
             this.btnPdf.UseVisualStyleBackColor = false;
-            // 
-            // btnWord
-            // 
-            this.btnWord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWord.AutoSize = true;
-            this.btnWord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
-            this.btnWord.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWord.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(64)))), ((int)(((byte)(96)))));
-            this.btnWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWord.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
-            this.btnWord.Location = new System.Drawing.Point(869, 8);
-            this.btnWord.MinimumSize = new System.Drawing.Size(80, 28);
-            this.btnWord.Name = "btnWord";
-            this.btnWord.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.btnWord.Size = new System.Drawing.Size(80, 28);
-            this.btnWord.TabIndex = 5;
-            this.btnWord.Text = "⊡ Word";
-            this.btnWord.UseVisualStyleBackColor = false;
             // 
             // panelContent
             // 
@@ -709,9 +709,9 @@ namespace Student_Accounting_System
         private System.Windows.Forms.Button btnDeleteStudent;
         private System.Windows.Forms.Button btnGroupSubjects;
         private System.Windows.Forms.Button btnGradeSheet;
+        private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnExcel;
         private System.Windows.Forms.Button btnPdf;
-        private System.Windows.Forms.Button btnWord;
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Label lblStudentsTitle;
         private System.Windows.Forms.Label lblAvgGradeLabel;

@@ -207,5 +207,13 @@ namespace Student_Accounting_System
             }
             LoadStudents(_group.Students);
         }
+
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            using (var form = new FormAttendance(_group))
+            {
+                form.ShowDialog(this);
+            }
+        }
     }
 }

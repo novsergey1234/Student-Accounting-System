@@ -89,6 +89,12 @@
     <Compile Include="FormGradeSheet.Designer.cs">
       <DependentUpon>FormGradeSheet.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAttendance.Designer.cs">
+      <DependentUpon>FormAttendance.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormStudentEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGradeSheet.resx">
       <DependentUpon>FormGradeSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAttendance.resx">
+      <DependentUpon>FormAttendance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStudentCard.resx">
       <DependentUpon>FormStudentCard.cs</DependentUpon>

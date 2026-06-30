@@ -26,11 +26,11 @@ namespace Student_Accounting_System
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelToolbar = new System.Windows.Forms.Panel();
@@ -39,7 +39,6 @@ namespace Student_Accounting_System
             this.btnDeleteGroup = new System.Windows.Forms.Button();
             this.btnExcel = new System.Windows.Forms.Button();
             this.btnPdf = new System.Windows.Forms.Button();
-            this.btnWord = new System.Windows.Forms.Button();
             this.panelSearch = new System.Windows.Forms.Panel();
             this.lblSearchIcon = new System.Windows.Forms.Label();
             this.lblSearchTitle = new System.Windows.Forms.Label();
@@ -101,7 +100,6 @@ namespace Student_Accounting_System
             this.panelToolbar.Controls.Add(this.btnDeleteGroup);
             this.panelToolbar.Controls.Add(this.btnExcel);
             this.panelToolbar.Controls.Add(this.btnPdf);
-            this.panelToolbar.Controls.Add(this.btnWord);
             this.panelToolbar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelToolbar.Location = new System.Drawing.Point(0, 60);
             this.panelToolbar.Name = "panelToolbar";
@@ -178,7 +176,7 @@ namespace Student_Accounting_System
             this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
-            this.btnExcel.Location = new System.Drawing.Point(620, 6);
+            this.btnExcel.Location = new System.Drawing.Point(758, 6);
             this.btnExcel.MinimumSize = new System.Drawing.Size(80, 28);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
@@ -197,7 +195,7 @@ namespace Student_Accounting_System
             this.btnPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPdf.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnPdf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
-            this.btnPdf.Location = new System.Drawing.Point(710, 6);
+            this.btnPdf.Location = new System.Drawing.Point(844, 5);
             this.btnPdf.MinimumSize = new System.Drawing.Size(80, 28);
             this.btnPdf.Name = "btnPdf";
             this.btnPdf.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
@@ -205,25 +203,6 @@ namespace Student_Accounting_System
             this.btnPdf.TabIndex = 4;
             this.btnPdf.Text = "⊟ PDF";
             this.btnPdf.UseVisualStyleBackColor = false;
-            // 
-            // btnWord
-            // 
-            this.btnWord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWord.AutoSize = true;
-            this.btnWord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(46)))), ((int)(((byte)(72)))));
-            this.btnWord.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWord.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(64)))), ((int)(((byte)(96)))));
-            this.btnWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWord.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
-            this.btnWord.Location = new System.Drawing.Point(800, 6);
-            this.btnWord.MinimumSize = new System.Drawing.Size(80, 28);
-            this.btnWord.Name = "btnWord";
-            this.btnWord.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.btnWord.Size = new System.Drawing.Size(80, 28);
-            this.btnWord.TabIndex = 5;
-            this.btnWord.Text = "⊡ Word";
-            this.btnWord.UseVisualStyleBackColor = false;
             // 
             // panelSearch
             // 
@@ -270,7 +249,7 @@ namespace Student_Accounting_System
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(220)))));
             this.txtSearch.Location = new System.Drawing.Point(12, 24);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(760, 24);
+            this.txtSearch.Size = new System.Drawing.Size(806, 24);
             this.txtSearch.TabIndex = 2;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
@@ -284,7 +263,7 @@ namespace Student_Accounting_System
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(210)))));
-            this.btnSearch.Location = new System.Drawing.Point(780, 24);
+            this.btnSearch.Location = new System.Drawing.Point(824, 25);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(100, 23);
             this.btnSearch.TabIndex = 3;
@@ -312,8 +291,8 @@ namespace Student_Accounting_System
             this.dataGridViewGroups.AllowUserToDeleteRows = false;
             this.dataGridViewGroups.AllowUserToResizeColumns = false;
             this.dataGridViewGroups.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(52)))));
-            this.dataGridViewGroups.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(52)))));
+            this.dataGridViewGroups.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewGroups.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -322,15 +301,15 @@ namespace Student_Accounting_System
             this.dataGridViewGroups.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewGroups.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewGroups.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
-            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroups.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(180)))));
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroups.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewGroups.ColumnHeadersHeight = 36;
             this.dataGridViewGroups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewGroups.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -338,15 +317,15 @@ namespace Student_Accounting_System
             this.colSubGroup,
             this.colStudents,
             this.colAvgGrade});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(140)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewGroups.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(80)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewGroups.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewGroups.EnableHeadersVisualStyles = false;
             this.dataGridViewGroups.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.dataGridViewGroups.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(68)))));
@@ -382,8 +361,8 @@ namespace Student_Accounting_System
             // 
             // colStudents
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colStudents.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colStudents.DefaultCellStyle = dataGridViewCellStyle3;
             this.colStudents.FillWeight = 25F;
             this.colStudents.HeaderText = "Студентов";
             this.colStudents.MinimumWidth = 10;
@@ -392,8 +371,8 @@ namespace Student_Accounting_System
             // 
             // colAvgGrade
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colAvgGrade.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colAvgGrade.DefaultCellStyle = dataGridViewCellStyle4;
             this.colAvgGrade.FillWeight = 25F;
             this.colAvgGrade.HeaderText = "Ср. балл";
             this.colAvgGrade.MinimumWidth = 10;
@@ -590,7 +569,6 @@ namespace Student_Accounting_System
         private System.Windows.Forms.Button btnDeleteGroup;
         private System.Windows.Forms.Button btnExcel;
         private System.Windows.Forms.Button btnPdf;
-        private System.Windows.Forms.Button btnWord;
         private System.Windows.Forms.Panel panelSearch;
         private System.Windows.Forms.Label lblSearchIcon;
         private System.Windows.Forms.Label lblSearchTitle;

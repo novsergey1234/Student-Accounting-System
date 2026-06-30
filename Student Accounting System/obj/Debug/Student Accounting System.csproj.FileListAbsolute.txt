@@ -7,22 +7,6 @@ C:\SmolGU\Student Accounting System\Student Accounting System\bin\Debug\Student 
 C:\SmolGU\Student Accounting System\Student Accounting System\bin\Debug\Student Accounting System.pdb
 C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student Accounting System.exe
 C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student Accounting System.pdb
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\bin\Debug\Student Accounting System.exe.config
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\bin\Debug\Student Accounting System.exe
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\bin\Debug\Student Accounting System.pdb
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student Accounting System.csproj.AssemblyReference.cache
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student Accounting System.exe.config
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student_Accounting_System.Properties.Resources.resources
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student Accounting System.csproj.GenerateResource.cache
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student Accounting System.csproj.CoreCompileInputs.cache
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student Accounting System.exe
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student Accounting System.pdb
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\bin\Debug\System.Data.SQLite.dll
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\bin\Debug\System.Data.SQLite.xml
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student .178FFAF4.Up2Date
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student_Accounting_System.FormStudents.resources
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student_Accounting_System.FormGroups.resources
-C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student_Accounting_System.FormStudentCard.resources
 C:\SmolGU\Student Accounting System\Student Accounting System\bin\Debug\System.Data.SQLite.dll
 C:\SmolGU\Student Accounting System\Student Accounting System\bin\Debug\System.Data.SQLite.xml
 C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student_Accounting_System.FormGroups.resources
@@ -31,3 +15,22 @@ C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student_
 C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student .178FFAF4.Up2Date
 C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student_Accounting_System.FormGroupSubjects.resources
 C:\SmolGU\Student Accounting System\Student Accounting System\obj\Debug\Student_Accounting_System.FormGradeSheet.resources
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\bin\Debug\Student Accounting System.exe.config
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\bin\Debug\Student Accounting System.exe
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\bin\Debug\Student Accounting System.pdb
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\bin\Debug\System.Data.SQLite.dll
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\bin\Debug\System.Data.SQLite.xml
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student Accounting System.csproj.AssemblyReference.cache
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student_Accounting_System.FormGroups.resources
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student_Accounting_System.FormGroupSubjects.resources
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student_Accounting_System.FormGradeSheet.resources
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student_Accounting_System.FormAttendance.resources
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student_Accounting_System.FormStudentCard.resources
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student_Accounting_System.FormStudents.resources
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student_Accounting_System.Properties.Resources.resources
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student Accounting System.csproj.GenerateResource.cache
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student Accounting System.csproj.CoreCompileInputs.cache
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student .178FFAF4.Up2Date
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student Accounting System.exe
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student Accounting System.pdb
+C:\SmolGU\Practice\Student-Accounting-System\Student Accounting System\obj\Debug\Student Accounting System.exe.config

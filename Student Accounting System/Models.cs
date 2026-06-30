@@ -69,6 +69,34 @@ namespace Student_Accounting_System
         }
     }
 
+    public class AttendanceRecord
+    {
+        public int Id { get; set; }
+        public int StudentId { get; set; }
+        public DateTime Date { get; set; }
+        public bool IsAbsent1 { get; set; }
+        public bool IsAbsent2 { get; set; }
+        public bool IsAbsent3 { get; set; }
+        public bool IsAbsent4 { get; set; }
+        public bool IsAbsent5 { get; set; }
+
+        public int AbsenceCount
+        {
+            get
+            {
+                int count = 0;
+                if (IsAbsent1) count++;
+                if (IsAbsent2) count++;
+                if (IsAbsent3) count++;
+                if (IsAbsent4) count++;
+                if (IsAbsent5) count++;
+                return count;
+            }
+        }
+
+        public int AbsenceHours => AbsenceCount * 2;
+    }
+
     public class Group
     {
         public int Id { get; set; }
